@@ -14,18 +14,18 @@ from django.urls import reverse
 
 
 class Dish(models.Model):
-    dish_id = models.AutoField(primary_key=True, verbose_name='菜品编号')
+    dish_id = models.AutoField(primary_key=True, verbose_name='商品编号')
     shop = models.ForeignKey(Shop, models.CASCADE, verbose_name='窗口')
-    dish_name = models.CharField(max_length=20, verbose_name='菜品名称')
-    dish_detail = models.CharField(max_length=200, blank=True, null=True, verbose_name='菜品描述')
-    dish_price = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="菜品价格")
-    dish_photo = models.ImageField(upload_to='images/dish', null=True, blank=True, verbose_name='菜品照片')
-    dish_active = models.IntegerField(choices = [(1, '销售中'),(0, '售罄')], verbose_name='菜品状态')
+    dish_name = models.CharField(max_length=20, verbose_name='商品名称')
+    dish_detail = models.CharField(max_length=200, blank=True, null=True, verbose_name='商品描述')
+    dish_price = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="商品价格")
+    dish_photo = models.ImageField(upload_to='images/dish', null=True, blank=True, verbose_name='商品照片')
+    dish_active = models.IntegerField(choices = [(1, '销售中'),(0, '售罄')], verbose_name='商品状态')
 
     class Meta:
         ordering = ['dish_id']
         db_table = 'dish'
-        verbose_name = "菜品信息"
+        verbose_name = "商品信息"
         verbose_name_plural = verbose_name
 
     def __str__(self):
@@ -37,7 +37,7 @@ class Dish(models.Model):
 
 class Orders(models.Model):
     order_id = models.AutoField(primary_key=True, verbose_name='订单编号')
-    dish = models.ForeignKey(Dish, models.CASCADE, verbose_name='菜品')
+    dish = models.ForeignKey(Dish, models.CASCADE, verbose_name='商品')
     customer = models.ForeignKey(Customer, models.CASCADE, verbose_name='顾客')
     order_price = models.DecimalField(max_digits=5, decimal_places=2,  blank=True, null=True, verbose_name="订单价格")
     order_status = models.IntegerField(choices=[(0, '已下单'), (1, '已发货'), (2, '已送达'), (3, '已评价')], default=0, verbose_name='订单状态')
