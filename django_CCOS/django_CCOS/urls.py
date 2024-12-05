@@ -19,7 +19,9 @@ from django.contrib import admin
 from django.urls import path
 
 # 用于 include 其他模板所在的 url
-from django.conf.urls import url, include
+from django.urls import re_path as url
+
+from django.conf.urls import  include
 
 # 用于 图片 静态存储
 from . import settings
