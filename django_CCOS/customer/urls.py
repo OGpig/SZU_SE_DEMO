@@ -1,6 +1,5 @@
 from . import views
 from django.urls import re_path as url
-
 from django.urls import path
 from .views import login, register, logout, information, show_info
 

@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'bootstrap4',
     'canteen',
     'customer',
+    'widget_tweaks',
     'dish',
+    'surf_competition',
     # 'order',
 ]
 

@@ -19,5 +19,5 @@ class AddressAdmin(admin.ModelAdmin):
 admin.site.register(Customer, CustomerAdmin)
 admin.site.register(Address, AddressAdmin)
 
-admin.site.site_header = '校园食堂后台管理系统'
-admin.site.site_title = '校园食堂后台管理系统'
+admin.site.site_header = '特色时令产品集市系统'
+admin.site.site_title = '特色时令产品集市系统'

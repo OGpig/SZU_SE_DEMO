@@ -20,8 +20,7 @@ from django.urls import path
 
 # 用于 include 其他模板所在的 url
 from django.urls import re_path as url
-
-from django.conf.urls import  include
+from django.conf.urls import include
 
 # 用于 图片 静态存储
 from . import settings
@@ -34,6 +33,7 @@ urlpatterns = [
     path('', include('canteen.urls')),
     path('customer/', include('customer.urls')),
     path('', include('dish.urls')),
+    path('', include('surf_competition.urls')),
 ]
 
 # 把 media 路径也添加上

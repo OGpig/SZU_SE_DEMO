@@ -37,7 +37,7 @@ def register(request):
                     # 自动跳转到登录页面
                     login_form = LoginForm()
                     message = "注册成功！"
-                    return render(request, 'customer/login.html', locals())  # 自动跳转到登录页面
+                    return render(request, 'customer/new_login.html', locals())  # 自动跳转到登录页面
     else:
         return render(request, 'customer/register.html', locals())
 
@@ -79,7 +79,7 @@ def login(request):
             except:
                 print("[DEBUG][POST][STATE]:用户不存在")
                 message = "用户不存在"
-    return render(request, 'customer/login.html', locals())
+    return render(request, 'customer/new_login.html', locals())
 
 
 def logout(request):

@@ -1,0 +1,59 @@
+{% load static %}
+
+{% block css %}
+<link href="{% static 'css/login.css' %}" rel="stylesheet" />
+<link href="{% static 'css/login/bootstrap.min.css' %}" rel="stylesheet">
+
+<link href="{% static 'css/login/bootstrap-icons.css' %}" rel="stylesheet">
+
+<link href="{% static 'css/login/tooplate-kool-form-pack.css' %}" rel="stylesheet">{% endblock %}
+
+<section class="hero-section d-flex justify-content-center align-items-center">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-5 col-12 mx-auto">
+                <form class="custom-form login-form" action="/customer/login/" role="form" method="post">
+                    <h2 class="hero-title text-center mb-4 pb-2">Login Form</h2>
+                    {% csrf_token %}
+                    <div class="form-floating mb-4 p-0">
+                        {{ login_form.username }}
+                        <label for="id_username">用户名</label>
+                    </div>
+                    <div class="form-floating p-0">
+                        {{ login_form.password }}
+                        <label for="id_password">密码</label>
+                    </div>
+
+                    <div class="form-check mb-4">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Remember me
+                        </label>
+                    </div>
+
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-lg-5 col-12">
+                            <button type="submit" class="form-control">登录</button>
+                        </div>
+
+                        <div class="col-lg-5 col-12">
+                            <button type="reset" class="btn custom-btn custom-border-btn">重置</button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="video-wrap">
+        <video autoplay="" loop="" muted="" class="custom-video" poster="">
+            <source src="{{ MEDIA_URL }}videos/video.mp4" type="video/mp4">
+
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</section>

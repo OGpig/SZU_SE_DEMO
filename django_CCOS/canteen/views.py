@@ -17,3 +17,4 @@ def show_shop(request):
         'shop_list': Shop.objects.all()
     }
     return render(request, template_name, context)
+
