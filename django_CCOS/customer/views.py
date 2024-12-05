@@ -22,13 +22,13 @@ def register(request):
             if password1 != password2:  # 判断两次密码是否相同
                 print("[DEBUG][POST][STATE]:两次输入的密码不同！")
                 # message = "两次输入的密码不同！"
-                return render(request, 'customer/register.html', locals())
+                return render(request, 'customer/new_register.html', locals())
             else:
                 same_id_cus = Customer.objects.filter(customer_name=username)
                 # same_id_mng = StoreManager.objects.filter(manager_name=username)
                 if same_id_cus:  # 用户名唯一
                     message = '顾客用户名已经存在~请换一个'
-                    return render(request, 'customer/register.html', locals())
+                    return render(request, 'customer/new_register.html', locals())
                 # 当一切都OK的情况下，创建新用户
                 else:
                     new_cus = Customer.objects.create(customer_name=username, customer_tel=tel,
@@ -39,9 +39,9 @@ def register(request):
                     message = "注册成功！"
                     return render(request, 'customer/new_login.html', locals())  # 自动跳转到登录页面
     else:
-        return render(request, 'customer/register.html', locals())
+        return render(request, 'customer/new_register.html', locals())
 
-    return render(request, 'customer/register.html', locals())
+    return render(request, 'customer/new_register.html', locals())
 
 
 def login(request):
