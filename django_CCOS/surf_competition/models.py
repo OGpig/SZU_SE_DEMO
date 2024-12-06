@@ -6,6 +6,8 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
+from django.utils.text import slugify
+from django.shortcuts import redirect
 from customer.models import Customer
 
 class Surf(models.Model):
@@ -15,7 +17,6 @@ class Surf(models.Model):
     surf_time = models.DateTimeField(blank=True, null=True)
 
     class Meta:
-        managed = False
         db_table = 'surf'
         verbose_name = '浏览'
         verbose_name_plural = '浏览'
@@ -31,7 +32,6 @@ class Competition(models.Model):
     competition_time = models.DateField(blank=True, null=True)
 
     class Meta:
-        managed = False
         db_table = 'competition'
         verbose_name = '竞赛'
         verbose_name_plural = '竞赛'
@@ -47,7 +47,6 @@ class Inquiry(models.Model):
     customer = models.ForeignKey(Customer, models.DO_NOTHING, blank=True, null=True)
 
     class Meta:
-        managed = False
         db_table = 'inquiry'
         verbose_name = '浏览'
         verbose_name_plural = '浏览'
