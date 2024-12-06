@@ -1,213 +1,238 @@
 {% load static %}
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<!-- saved from url=(0045)https://www.tipdm.org:10010/#/competitionList -->
+<html lang="en" class=" ">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-<title>赛事浏览</title>
-<link type="text/css" rel="stylesheet" href="{% static 'css/css_surt_competition/reset.css' %}" />
-<link type="text/css" rel="stylesheet" href="{% static 'css/css_surt_competition/1024_768.css' %}" />
-<link type="text/css" rel="stylesheet" media="screen and (min-width:861px) and (max-width:960px)" href="{% static 'css/css_surt_competition/pad_heng.css' %}" />
-<link type="text/css" rel="stylesheet" media="screen and (min-width:601px) and (max-width:860px)" href="{% static 'css/css_surt_competition/pad.css' %}" />
-<link type="text/css" rel="stylesheet" media="screen and (min-width:481px) and (max-width:600px)" href="{% static 'css/css_surt_competition/tel_heng.css' %}" />
-<link type="text/css" rel="stylesheet" media="screen and (max-width:480px)" href="{% static 'css/css_surt_competition/tel.css' %}" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="icon" href="https://www.tipdm.org:10010/favicon.ico">
+    <title>BdRace数睿思 数据挖掘竞赛平台</title>
+    <link href="{% static 'css/css_surf_competition/chunk-76f05a57.ea0c22f9.css' %}" rel="prefetch">
+    <link href="{% static 'css/css_surf_competition/chunk-773743fd.26ab3fe0.css' %}" rel="prefetch">
+    <link href="{% static 'css/css_surf_competition/chunk-common.0e933be9.css' %}" rel="preload" as="style">
+    <link href="{% static 'css/css_surf_competition/chunk-vendors.e57a3522.css' %}" rel="preload" as="style">
+    <link href="{% static 'css/css_surf_competition/chunk-vendors.e57a3522.css' %}" rel="stylesheet">
+    <link href="{% static 'css/css_surf_competition/chunk-common.0e933be9.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/css_surf_competition/chunk-773743fd.26ab3fe0.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/css_surf_competition/chunk-76f05a57.ea0c22f9.css' %}">
 </head>
 
 <body>
-<div class="w_100_l top_title">
-	<div class="main">
-    	<p><a href="#">Buy more than one book and save big! </a><a href="#">Read more</a></p>
-    </div>
-</div>
 
-<div class="w_100_l">
-	<div class="main">
-      <div class="top_banner">
-            <div class="top_logo"><img src="{{ MEDIA_URL }}images/surf_competition/top_logo.jpg" alt="A BOOK APART LOGO" /></div>
-            <div class="top_menu">
-            	<ul>
-                	<li class="sel"><a href="#">HOME</a></li>
-                	<li><a href="#">STORE</a></li>
-                	<li><a href="#">PRESS</a></li>
-                	<li><a href="#">ABOUT</a></li>
-                	<li><a href="#">HELP</a></li>
-                </ul>
-            </div>
-            <div class="top_shop_cur"><a href="#"><img src="{{ MEDIA_URL }}images/surf_competition/top_shop_cur.jpg" alt="shopping car" /></a></div>
-        </div>
-        <span class="index_img"><img src="{{ MEDIA_URL }}images/surf_competition/banner_img.jpg" alt="Dan Cederholm" border="0" usemap="#Map" />
-        <map name="Map" id="Map">
-          <area shape="rect" coords="857,230,930,269" href="#" alt="buy now" />
-        </map>
-        </span>
-        <p class="index_hr"></p>
-      <div class="content">
-            <h1 class="h1_book_title">Also from A Book Apart</h1>
-        	<ul>
-            	<li>
-                	<dl>
-                    	<dd><a href="#"><img src="{{ MEDIA_URL }}images/surf_competition/book_01.jpg" alt="book" /></a></dd>
-                        <dt>
-                        	<p class="book_title"><a href="#" target="_blank">Gift cards</a></p>
-                            <p class="book_inline">$25, $50, and $100</p>
-                            <a class="book_buy" href="#" target="_blank">BUY</a>
-                        </dt>
-                    </dl>
-                </li>
-            	<li>
-                	<dl>
-                    	<dd><a href="#"><img src="{{ MEDIA_URL }}images/surf_competition/book_02.jpg" alt="book" /></a></dd>
-                        <dt>
-                        	<p class="book_title"><a href="#" target="_blank">Just Enough Research</a></p>
-                            <p class="book_inline">by Erika Hall</p>
-                            <a class="book_buy" href="#" target="_blank">BUY</a>
-                        </dt>
-                    </dl>
-                </li>
-            	<li>
-                	<dl>
-                    	<dd><a href="#"><img src="{{ MEDIA_URL }}images/surf_competition/book_03.jpg" alt="book" /></a></dd>
-                        <dt>
-                        	<p class="book_title"><a href="#" target="_blank">Content Strategy for Mobile</a></p>
-                            <p class="book_inline">by Karen McGrane</p>
-                            <a class="book_buy" href="#" target="_blank">BUY</a>
-                        </dt>
-                    </dl>
-                </li>
-            	<li>
-                	<dl>
-                    	<dd><a href="#"><img src="{{ MEDIA_URL }}images/surf_competition/book_04.jpg" alt="book" /></a></dd>
-                        <dt>
-                        	<p class="book_title"><a href="#" target="_blank">Design Is a Job</a></p>
-                            <p class="book_inline">by Mike Monteiro</p>
-                            <a class="book_buy" href="#" target="_blank">BUY</a>
-                        </dt>
-                    </dl>
-                </li>
-            	<li>
-                	<dl>
-                    	<dd><a href="#"><img src="{{ MEDIA_URL }}images/surf_competition/book_05.jpg" alt="book" /></a></dd>
-                        <dt>
-                        	<p class="book_title"><a href="#" target="_blank">Mobile First</a></p>
-                            <p class="book_inline">by Luke Wroblewski</p>
-                            <a class="book_buy" href="#" target="_blank">BUY</a>
-                        </dt>
-                    </dl>
-                </li>
-            	<li>
-                	<dl>
-                    	<dd><a href="#"><img src="{{ MEDIA_URL }}images/surf_competition/book_06.jpg" alt="book" /></a></dd>
-                        <dt>
-                        	<p class="book_title"><a href="#" target="_blank">Designing for Emotion</a></p>
-                            <p class="book_inline">by Aarron Walter</p>
-                            <a class="book_buy" href="#" target="_blank">BUY</a>
-                        </dt>
-                    </dl>
-                </li>
-            	<li>
-                	<dl>
-                    	<dd><a href="#"><img src="{{ MEDIA_URL }}images/surf_competition/book_07.jpg" alt="book" /></a></dd>
-                        <dt>
-                        	<p class="book_title"><a href="#" target="_blank">Responsive Web Design</a></p>
-                            <p class="book_inline">by Ethan Marcotte</p>
-                            <a class="book_buy" href="#" target="_blank">BUY</a>
-                        </dt>
-                    </dl>
-                </li>
-            	<li>
-                	<dl>
-                    	<dd><a href="#"><img src="{{ MEDIA_URL }}images/surf_competition/book_08.jpg" alt="book" /></a></dd>
-                        <dt>
-                        	<p class="book_title"><a href="#" target="_blank">CSS3 for Web Designers</a></p>
-                            <p class="book_inline">by Dan Cederholm</p>
-                            <a class="book_buy" href="#" target="_blank">BUY</a>
-                        </dt>
-                    </dl>
-                </li>
-            	<li>
-                	<dl>
-                    	<dd><a href="#"><img src="{{ MEDIA_URL }}images/surf_competition/book_09.jpg" alt="book" /></a></dd>
-                        <dt>
-                        	<p class="book_title"><a href="#" target="_blank">HTML5 for Web Designers</a></p>
-                            <p class="book_inline">by Jeremy Keith</p>
-                            <a class="book_buy" href="#" target="_blank">BUY</a>
-                        </dt>
-                    </dl>
-                </li>
-            	<li>
-                	<dl>
-                    	<dd><a href="#"><img src="{{ MEDIA_URL }}images/surf_competition/book_10.jpg" alt="book" /></a></dd>
-                        <dt>
-                        	<p class="book_title"><a href="#" target="_blank">On Web Typography</a></p>
-                            <p class="book_inline">by Jason Santa Maria</p>
-                            <a class="book_buy" href="#" target="_blank">BUY</a>
-                        </dt>
-                    </dl>
-                </li>
-            	<li>
-                	<dl>
-                    	<dd><a href="#"><img src="{{ MEDIA_URL }}images/surf_competition/book_11.jpg" alt="book" /></a></dd>
-                        <dt>
-                        	<p class="book_title"><a href="#" target="_blank">Responsible Responsive Design</a></p>
-                            <p class="book_inline">by Scott Jehl</p>
-                            <a class="book_buy" href="#" target="_blank">BUY</a>
-                        </dt>
-                    </dl>
-                </li>
-            	<li>
-                	<dl>
-                    	<dd><a href="#"><img src="{{ MEDIA_URL }}images/surf_competition/book_12.jpg" alt="book" /></a></dd>
-                        <dt>
-                        	<p class="book_title"><a href="#" target="_blank">On Web Typography</a></p>
-                            <p class="book_inline">by Jason Santa Maria</p>
-                            <a class="book_buy" href="#" target="_blank">BUY</a>
-                        </dt>
-                    </dl>
-                </li>
-            </ul>
-      </div>
-        <p class="index_hr"></p>
-        <div class="content_press">
-        	<div class="press_porsen_01">
-                <h1>Press Room</h1>
-            	<dl>
-                	<dd><img src="{{ MEDIA_URL }}images/surf_competition/img_men.jpg" alt="person" /></dd>
-                    <dt>
-                    	<p class="date">Apr 03, 2014</p>
-                        <p class="book_title"><a href="#" target="_blank">Design Is a Job audiobook</a></p>
-                        <p class="book_intro">
-                        We’re pleased to announce that <a href="#">Design Is a Job</a> by Mike Monteiro is now available in audiobook format, through <a href="#">Audible.com</a> and <a href="#">Amazon.com</a>. Narrated by the raconteur himself, experience the guidance, real-talk, and humor of our seminal book on design as a job.
-                        </p>
-                    </dt>
-                </dl>
-            </div>
-            <div class="press_porsen_02">
-                <h1><span class="span_2"><a href="#"> More Articles →</a></span><span class="span_1"><a href="#">Press Room RSS</a></span></h1>
-            	<dl>
-                	<dd><img src="{{ MEDIA_URL }}images/surf_competition/img_lives.jpg" alt="book img" /></dd>
-                    <dt>
-                    	<p class="date">Mar 31, 2014</p>
-                        <p class="book_title"><a href="#" target="_blank">A Few of Our Faves: March 31st</a></p>
-                        <p class="book_intro">
-                        As the madness of March comes to a close, we gathered up a few things that caught our attention during the last half of the month. <a href="#">Read on for more.</a>                        </p>
-                    </dt>
-                </dl>
-            </div>
-        </div>
-        <p class="index_hr"></p>
-        <h1 class="news_title">Newsletter</h1>
-        <p class="news_title_1"><span class="span_1">Keep up to date with new book releases and announcements with our newsletter.</span><span class="span_2"><img src="{{ MEDIA_URL }}images/surf_competition/img_inp.jpg" /></span></p>
-        <p class="index_hr" style="margin-top:20px;"></p>
-        <div class="footer">
-           <span class="span_1">&copy; Copyright 2014, A Book Apart, LLC</span>&nbsp;&nbsp;
-            <a href="#">Help & Contact us</a>
-            <a class="a1" href="#">Press Room RSS feed</a>
-            <a class="a2" href="#">abookapart on Twitter</a>
-            <span class="span_2"><b>Published by</b><img src="{{ MEDIA_URL }}images/surf_competition/icon_hg.jpg" align="absmiddle" /></span>
+    <div class="app">
+        <div data-v-f7d88a7c="" class="app-wrapper">
+            <section data-v-f7d88a7c="" class="header fixed-header">
+                <div data-v-f7d88a7c="" class="container">
+                    <div class="logo"><a href="/"><img
+                                src="{{ MEDIA_URL }}images/surf_competition/216f3a8e4bc1767ccf7a92198ac46ff6.png"
+                                class="user-avatar"></a></div>
+                    <div class="menu">
+                        <ul>
+
+                        </ul>
+                    </div>
+                    <div></div>
+                </div>
+            </section>
+            <section data-v-622dd1b6="" data-v-f7d88a7c="" class="app-main">
+                <div data-v-622dd1b6="" class="hasBg"><!---->
+                    <div class="container">
+                        <div class="competitionSort">
+                            <div
+                                class="competitionSearch el-input el-input--medium el-input-group el-input-group--append el-input--suffix">
+                                <!----><input type="text" autocomplete="off" placeholder="搜索竞赛名称" maxlength="20"
+                                    class="el-input__inner"><!----><!---->
+                                <div class="el-input-group__append"><button type="button"
+                                        class="el-button el-button--default el-button--small"><!----><i
+                                            class="el-icon-search"></i><!----></button></div><!---->
+                            </div>
+                            <dl>
+                                <dt>状态：</dt>
+                                <dd>
+                                    <li class="active">全部</li>
+                                    <li class="">可报名</li>
+                                    <li class="">进行中</li>
+                                    <li class="">已结束</li>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>分类：</dt>
+                                <dd>
+                                    <li class="active">全部</li>
+                                    <li class="">数据挖掘</li>
+                                    <li class="">数据分析</li>
+                                    <li class="">数学建模</li>
+                                    <li class="">金融数学</li>
+                                    <li class="">人工智能</li>
+                                    <li class="">大数据应用</li>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="competitionList">
+                            <div class="hd mt30">
+                                <ul>
+                                    <li class="active">全部竞赛</li>
+                                    <li class="">泰迪杯挑战赛</li>
+                                    <li class="">泰迪杯技能赛</li>
+                                    <li class="">湾区金融数模</li>
+                                    <li class="">华中杯</li>
+                                    <li class="">技能兴鲁</li>
+                                    <li class="">大学生科技节</li>
+                                </ul>
+                            </div>
+                            <div class="bd mt30">
+                                <div class="bandAD"><a><!----><img
+                                            src="{{ MEDIA_URL }}images/surf_competition/all_brand.f9249044.jpg"></a></div>
+                                <ul class="competitionListUl">
+                                    <li class="status status-off">
+                                        <div class="img"><img
+                                                src="{{ MEDIA_URL }}images/surf_competition/2eb6e05cd2d74ed8bc312240461f65a2.png">
+                                        </div>
+                                        <div class="content">
+                                            <div class="tit">
+                                                <h1>泰迪科技中国高校上进双创工作室作品争夺赛</h1><span
+                                                    class="el-tag el-tag--small el-tag--light">
+                                                    大数据应用
+                                                </span>
+                                            </div>
+                                            <div class="intro">
+                                                <p>品牌：泰迪科技中国高校上进双创工作室作品争夺赛</p>
+                                                <p>组织单位：泰迪科技中国高校上进双创工作室</p>
+                                            </div>
+                                            <div class="info"><span class="bonus"><i class="el-icon-trophy"></i>
+                                                    <font>奖金</font><em>CNY ¥0</em>
+                                                </span><span class="team"><i class="el-icon-wind-power"></i>
+                                                    <font>队伍</font><em>14</em>
+                                                </span><span class="dateTime"><i class="el-icon-time"></i>
+                                                    <font>时间：</font>2024-10-01 ~ 2024-11-30
+                                                </span></div>
+                                        </div>
+                                    </li>
+                                    <li class="status status-ing">
+                                        <div class="img"><img
+                                                src="{{ MEDIA_URL }}images/surf_competition/ad2548b44bfa0e2e4c85324e0b92f6d5.jpg">
+                                        </div>
+                                        <div class="content">
+                                            <div class="tit">
+                                                <h1>2024年（第7届）“泰迪杯”数据分析技能赛</h1><span
+                                                    class="el-tag el-tag--small el-tag--light warning">
+                                                    数据分析
+                                                </span>
+                                            </div>
+                                            <div class="intro">
+                                                <p>品牌：“泰迪杯”数据分析技能赛</p>
+                                                <p>组织单位：泰迪杯数据分析技能赛组织委员会、广东泰迪智能科技股份有限公司</p>
+                                            </div>
+                                            <div class="info"><span class="bonus"><i class="el-icon-trophy"></i>
+                                                    <font>奖金</font><em>CNY ¥10,000</em>
+                                                </span><span class="team"><i class="el-icon-wind-power"></i>
+                                                    <font>队伍</font><em>1,592</em>
+                                                </span><span class="dateTime"><i class="el-icon-time"></i>
+                                                    <font>时间：</font>2024-09-02 ~ 2024-12-31
+                                                </span></div>
+                                        </div>
+                                    </li>
+                                    <li class="status status-off">
+                                        <div class="img"><img
+                                                src="{{ MEDIA_URL }}images/surf_competition/1869adc899b9d17763249069823d4522.png">
+                                        </div>
+                                        <div class="content">
+                                            <div class="tit">
+                                                <h1>2024年广州市数字工匠“泰迪杯”计算机程序设计员职业技能竞赛</h1><span
+                                                    class="el-tag el-tag--small el-tag--light">
+                                                    大数据应用
+                                                </span>
+                                            </div>
+                                            <div class="intro">
+                                                <p>品牌：广州市数字工匠“泰迪杯”计算机程序设计员</p>
+                                                <p>组织单位：广州泰迪职业技能培训学校有限公司、广州城市职业学院、广州市职业能力建设指导中心、广东泰迪智能科技股份有限公司</p>
+                                            </div>
+                                            <div class="info"><span class="bonus"><i class="el-icon-trophy"></i>
+                                                    <font>奖金</font><em>CNY ¥0</em>
+                                                </span><span class="team"><i class="el-icon-wind-power"></i>
+                                                    <font>队伍</font><em>56</em>
+                                                </span><span class="dateTime"><i class="el-icon-time"></i>
+                                                    <font>时间：</font>2024-09-01 ~ 2024-10-20
+                                                </span></div>
+                                        </div>
+                                    </li>
+                                    <li class="status status-ing">
+                                        <div class="img"><img
+                                                src="{{ MEDIA_URL }}images/surf_competition/1c405b4b734fc1553d5d3ac3fd99e74a.png">
+                                        </div>
+                                        <div class="content">
+                                            <div class="tit">
+                                                <h1>第五届山东省“技能兴鲁”--“云+数”技能大赛（大数据赛项）</h1><span
+                                                    class="el-tag el-tag--small el-tag--light warning">
+                                                    数据分析
+                                                </span>
+                                            </div>
+                                            <div class="intro">
+                                                <p>品牌：山东省“技能兴鲁”--“云+数”技能大赛</p>
+                                                <p>组织单位：山东省人力资源和社会保障厅（指导单位）、山东电子学会、山东省信息产业协会、亚马逊通技术服务(北京)有限公司、广东泰迪智能科技股份有限公司、山东学文信息科技有限公司
+                                                </p>
+                                            </div>
+                                            <div class="info"><span class="bonus"><i class="el-icon-trophy"></i>
+                                                    <font>奖金</font><em>CNY ¥0</em>
+                                                </span><span class="team"><i class="el-icon-wind-power"></i>
+                                                    <font>队伍</font><em>112</em>
+                                                </span><span class="dateTime"><i class="el-icon-time"></i>
+                                                    <font>时间：</font>2024-09-01 ~ 2024-12-31
+                                                </span></div>
+                                        </div>
+                                    </li>
+                                    <li class="status status-off">
+                                        <div class="img"><img
+                                                src="{{ MEDIA_URL }}images/surf_competition/1869adc899b9d17763249069823d4522.png">
+                                        </div>
+                                        <div class="content">
+                                            <div class="tit">
+                                                <h1>首届甘肃省大学生数据挖掘挑战赛</h1><span
+                                                    class="el-tag el-tag--small el-tag--light">
+                                                    数据挖掘
+                                                </span>
+                                            </div>
+                                            <div class="intro">
+                                                <p>品牌：甘肃省大学生数据挖掘挑战赛</p>
+                                                <p>组织单位：甘肃省教育厅、甘肃省大学生数据挖掘挑战赛组织委员会、甘肃农业大学</p>
+                                            </div>
+                                            <div class="info"><span class="bonus"><i class="el-icon-trophy"></i>
+                                                    <font>奖金</font><em>CNY ¥0</em>
+                                                </span><span class="team"><i class="el-icon-wind-power"></i>
+                                                    <font>队伍</font><em>1,467</em>
+                                                </span><span class="dateTime"><i class="el-icon-time"></i>
+                                                    <font>时间：</font>2024-09-01 ~ 2024-10-31
+                                                </span></div>
+                                        </div>
+                                    </li><!---->
+                                </ul>
+                                <div class="pageSize">
+                                    <div class="el-pagination is-background"><button type="button" disabled="disabled"
+                                            class="btn-prev"><i class="el-icon el-icon-arrow-left"></i></button>
+                                        <ul class="el-pager">
+                                            <li class="number active">1</li><!---->
+                                            <li class="number">2</li>
+                                            <li class="number">3</li>
+                                            <li class="number">4</li>
+                                            <li class="number">5</li>
+                                            <li class="number">6</li>
+                                            <li class="el-icon more btn-quicknext el-icon-more"></li>
+                                            <li class="number">13</li>
+                                        </ul><button type="button" class="btn-next"><i
+                                                class="el-icon el-icon-arrow-right"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
-</div>
-<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+
 </body>
+
 </html>
