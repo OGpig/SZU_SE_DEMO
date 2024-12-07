@@ -8,17 +8,49 @@
 from django.db import models
 
 
-class ConsultationInfo(models.Model):
-    contactus_id = models.BigAutoField(primary_key=True)
-    sponsor_consultation = models.TextField()
-    cooperation_consultation = models.TextField()
-    competition_problem_consultation = models.TextField()
-    volunteer_recruitment_info = models.TextField()
-    email = models.CharField(unique=True, max_length=20)
-    feedback_form = models.TextField()
+class Contactus(models.Model):
+    contactus_id = models.IntegerField(primary_key=True)
+    date = models.DateField(blank=True, null=True)
+    email = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
-        db_table = 'consultation_info'
-    
+        
+        db_table = 'contactus'
+        
     def __str__(self):
         return str(self.contactus_id)
+
+
+class Consult(models.Model):
+    contactus_id = models.IntegerField(primary_key=True)
+    date = models.DateField(blank=True, null=True)
+    sponsor_consultation = models.TextField(blank=True, null=True)
+    cooperation_consultation = models.TextField(blank=True, null=True)
+    competition_consultation = models.TextField(blank=True, null=True)
+
+    class Meta:
+        
+        db_table = 'consult'
+
+
+class Feedbackform(models.Model):
+    contactus_id = models.IntegerField(primary_key=True)
+    date = models.DateField(blank=True, null=True)
+    feedbackinformation = models.TextField(blank=True, null=True)
+
+    class Meta:
+        
+        db_table = 'feedbackform'
+
+
+class Volunteerrecruitment(models.Model):
+    contactus_id = models.IntegerField(primary_key=True)
+    registrationmethod = models.CharField(max_length=255, blank=True, null=True)
+    volunteerrole = models.CharField(max_length=255, blank=True, null=True)
+    duty = models.TextField(blank=True, null=True)
+    workinghours = models.CharField(max_length=255, blank=True, null=True)
+    recruitmentrequirements = models.TextField(blank=True, null=True)
+
+    class Meta:
+       
+        db_table = 'volunteerrecruitment'
