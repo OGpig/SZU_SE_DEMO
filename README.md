@@ -44,7 +44,7 @@ SZU 2024 年秋季学期「软件工程」期末大作业，基于 MySQL+Django+
 
 5. 后台访问：http://127.0.0.1:8000/admin
    - 创建管理员：`python manage.py createsuperuser`
-   - 自行添加食堂、窗口、菜品，否则初始不显示
+   - 自行添加数据项
 
 
 
