@@ -18,7 +18,6 @@ class ConsultationInfo(models.Model):
     feedback_form = models.TextField()
 
     class Meta:
-        managed = False
         db_table = 'consultation_info'
     
     def __str__(self):

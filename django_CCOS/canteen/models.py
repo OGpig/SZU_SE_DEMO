@@ -14,7 +14,7 @@ class Canteen(models.Model):
     canteen_photo = models.ImageField(upload_to='images/canteen', null=True, blank=True, verbose_name='分区照片')
     sanitation_level = models.CharField(max_length=1, choices=[("A", 'A'), ("B", 'B'), ("C", 'C')], verbose_name='卫生等级')
     canteen_active = models.CharField(max_length=10, choices=[("营业中", '营业中'), ("歇业中", '歇业中')], verbose_name='分区状态')
-
+    
     class Meta:
         ordering = ['canteen_id']
         db_table = 'canteen'

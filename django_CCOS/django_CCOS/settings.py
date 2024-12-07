@@ -89,11 +89,11 @@ WSGI_APPLICATION = 'django_CCOS.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'se_demo',  # 连接的数据库
+        'NAME': 'database1',  # 连接的数据库
         'HOST': '127.0.0.1',    # mysql的ip地址
         'PORT': 3306,           # mysql的端口
         'USER': 'root',         # mysql的用户名
-        'PASSWORD': 'luowei1402107051'    # mysql的密码
+        'PASSWORD': '123456'    # mysql的密码
     }
 }
 

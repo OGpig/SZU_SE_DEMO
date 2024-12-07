@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import show_competition
+from .views import show_competition,filter_competition
 
 name='surf_competition'
 urlpatterns = [
-    path('surf_competition/', show_competition),
+    path('', show_competition),
+    path('filter_competition/', filter_competition,name='filter_competition'),
 ]

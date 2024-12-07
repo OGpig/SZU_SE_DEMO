@@ -33,7 +33,7 @@ urlpatterns = [
     path('', include('canteen.urls')),
     path('customer/', include('customer.urls')),
     path('', include('dish.urls')),
-    path('', include('surf_competition.urls')),
+    path('surf_competition/', include('surf_competition.urls')),
     path('', include('contactus.urls')),
 ]
 

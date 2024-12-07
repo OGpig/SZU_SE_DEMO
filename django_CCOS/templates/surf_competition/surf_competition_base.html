@@ -75,141 +75,21 @@
                         </div>
                         <div class="competitionList">
                             <div class="hd mt30">
-                                <ul>
-                                    <li class="active">全部竞赛</li>
-                                    <li class="">泰迪杯挑战赛</li>
-                                    <li class="">泰迪杯技能赛</li>
-                                    <li class="">湾区金融数模</li>
-                                    <li class="">华中杯</li>
-                                    <li class="">技能兴鲁</li>
-                                    <li class="">大学生科技节</li>
+                                <ul id="categoryList">
+                                    <li class="active" data-tag="all">全部竞赛</li>
+                                    <li data-tag="泰迪杯挑战赛">泰迪杯挑战赛</li>
+                                    <li data-tag="泰迪杯技能赛">泰迪杯技能赛</li>
+                                    <li data-tag="湾区金融数模">湾区金融数模</li>
+                                    <li data-tag="华中杯">华中杯</li>
+                                    <li data-tag="技能兴鲁">技能兴鲁</li>
+                                    <li data-tag="大学生科技节">大学生科技节</li>
                                 </ul>
                             </div>
                             <div class="bd mt30">
                                 <div class="bandAD"><a><!----><img
                                             src="{{ MEDIA_URL }}images/surf_competition/all_brand.f9249044.jpg"></a></div>
-                                <ul class="competitionListUl">
-                                    <li class="status status-off">
-                                        <div class="img"><img
-                                                src="{{ MEDIA_URL }}images/surf_competition/2eb6e05cd2d74ed8bc312240461f65a2.png">
-                                        </div>
-                                        <div class="content">
-                                            <div class="tit">
-                                                <h1>泰迪科技中国高校上进双创工作室作品争夺赛</h1><span
-                                                    class="el-tag el-tag--small el-tag--light">
-                                                    大数据应用
-                                                </span>
-                                            </div>
-                                            <div class="intro">
-                                                <p>品牌：泰迪科技中国高校上进双创工作室作品争夺赛</p>
-                                                <p>组织单位：泰迪科技中国高校上进双创工作室</p>
-                                            </div>
-                                            <div class="info"><span class="bonus"><i class="el-icon-trophy"></i>
-                                                    <font>奖金</font><em>CNY ¥0</em>
-                                                </span><span class="team"><i class="el-icon-wind-power"></i>
-                                                    <font>队伍</font><em>14</em>
-                                                </span><span class="dateTime"><i class="el-icon-time"></i>
-                                                    <font>时间：</font>2024-10-01 ~ 2024-11-30
-                                                </span></div>
-                                        </div>
-                                    </li>
-                                    <li class="status status-ing">
-                                        <div class="img"><img
-                                                src="{{ MEDIA_URL }}images/surf_competition/ad2548b44bfa0e2e4c85324e0b92f6d5.jpg">
-                                        </div>
-                                        <div class="content">
-                                            <div class="tit">
-                                                <h1>2024年（第7届）“泰迪杯”数据分析技能赛</h1><span
-                                                    class="el-tag el-tag--small el-tag--light warning">
-                                                    数据分析
-                                                </span>
-                                            </div>
-                                            <div class="intro">
-                                                <p>品牌：“泰迪杯”数据分析技能赛</p>
-                                                <p>组织单位：泰迪杯数据分析技能赛组织委员会、广东泰迪智能科技股份有限公司</p>
-                                            </div>
-                                            <div class="info"><span class="bonus"><i class="el-icon-trophy"></i>
-                                                    <font>奖金</font><em>CNY ¥10,000</em>
-                                                </span><span class="team"><i class="el-icon-wind-power"></i>
-                                                    <font>队伍</font><em>1,592</em>
-                                                </span><span class="dateTime"><i class="el-icon-time"></i>
-                                                    <font>时间：</font>2024-09-02 ~ 2024-12-31
-                                                </span></div>
-                                        </div>
-                                    </li>
-                                    <li class="status status-off">
-                                        <div class="img"><img
-                                                src="{{ MEDIA_URL }}images/surf_competition/1869adc899b9d17763249069823d4522.png">
-                                        </div>
-                                        <div class="content">
-                                            <div class="tit">
-                                                <h1>2024年广州市数字工匠“泰迪杯”计算机程序设计员职业技能竞赛</h1><span
-                                                    class="el-tag el-tag--small el-tag--light">
-                                                    大数据应用
-                                                </span>
-                                            </div>
-                                            <div class="intro">
-                                                <p>品牌：广州市数字工匠“泰迪杯”计算机程序设计员</p>
-                                                <p>组织单位：广州泰迪职业技能培训学校有限公司、广州城市职业学院、广州市职业能力建设指导中心、广东泰迪智能科技股份有限公司</p>
-                                            </div>
-                                            <div class="info"><span class="bonus"><i class="el-icon-trophy"></i>
-                                                    <font>奖金</font><em>CNY ¥0</em>
-                                                </span><span class="team"><i class="el-icon-wind-power"></i>
-                                                    <font>队伍</font><em>56</em>
-                                                </span><span class="dateTime"><i class="el-icon-time"></i>
-                                                    <font>时间：</font>2024-09-01 ~ 2024-10-20
-                                                </span></div>
-                                        </div>
-                                    </li>
-                                    <li class="status status-ing">
-                                        <div class="img"><img
-                                                src="{{ MEDIA_URL }}images/surf_competition/1c405b4b734fc1553d5d3ac3fd99e74a.png">
-                                        </div>
-                                        <div class="content">
-                                            <div class="tit">
-                                                <h1>第五届山东省“技能兴鲁”--“云+数”技能大赛（大数据赛项）</h1><span
-                                                    class="el-tag el-tag--small el-tag--light warning">
-                                                    数据分析
-                                                </span>
-                                            </div>
-                                            <div class="intro">
-                                                <p>品牌：山东省“技能兴鲁”--“云+数”技能大赛</p>
-                                                <p>组织单位：山东省人力资源和社会保障厅（指导单位）、山东电子学会、山东省信息产业协会、亚马逊通技术服务(北京)有限公司、广东泰迪智能科技股份有限公司、山东学文信息科技有限公司
-                                                </p>
-                                            </div>
-                                            <div class="info"><span class="bonus"><i class="el-icon-trophy"></i>
-                                                    <font>奖金</font><em>CNY ¥0</em>
-                                                </span><span class="team"><i class="el-icon-wind-power"></i>
-                                                    <font>队伍</font><em>112</em>
-                                                </span><span class="dateTime"><i class="el-icon-time"></i>
-                                                    <font>时间：</font>2024-09-01 ~ 2024-12-31
-                                                </span></div>
-                                        </div>
-                                    </li>
-                                    <li class="status status-off">
-                                        <div class="img"><img
-                                                src="{{ MEDIA_URL }}images/surf_competition/1869adc899b9d17763249069823d4522.png">
-                                        </div>
-                                        <div class="content">
-                                            <div class="tit">
-                                                <h1>首届甘肃省大学生数据挖掘挑战赛</h1><span
-                                                    class="el-tag el-tag--small el-tag--light">
-                                                    数据挖掘
-                                                </span>
-                                            </div>
-                                            <div class="intro">
-                                                <p>品牌：甘肃省大学生数据挖掘挑战赛</p>
-                                                <p>组织单位：甘肃省教育厅、甘肃省大学生数据挖掘挑战赛组织委员会、甘肃农业大学</p>
-                                            </div>
-                                            <div class="info"><span class="bonus"><i class="el-icon-trophy"></i>
-                                                    <font>奖金</font><em>CNY ¥0</em>
-                                                </span><span class="team"><i class="el-icon-wind-power"></i>
-                                                    <font>队伍</font><em>1,467</em>
-                                                </span><span class="dateTime"><i class="el-icon-time"></i>
-                                                    <font>时间：</font>2024-09-01 ~ 2024-10-31
-                                                </span></div>
-                                        </div>
-                                    </li><!---->
+                                <ul class="competitionListUl" id="competitionList">
+                                    
                                 </ul>
                                 <div class="pageSize">
                                     <div class="el-pagination is-background"><button type="button" disabled="disabled"
@@ -234,7 +114,74 @@
             </section>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const categoryList = document.getElementById("categoryList");
+            const competitionList = document.getElementById("competitionList");
 
+            // 点击事件监听
+            categoryList.addEventListener("click", function (e) {
+                if (e.target.tagName === "LI") {
+                    // 获取点击的类别标签
+                    const tag = e.target.getAttribute("data-tag");
+
+                    // 更新选中样式
+                    document.querySelectorAll("#categoryList li").forEach((li) => {
+                        li.classList.remove("active");
+                    });
+                    e.target.classList.add("active");
+
+                    // 向后端发送请求，获取筛选数据
+                    fetch(`/surf_competition/filter_competition/?category=${tag}`)
+                        .then((response) => response.json())
+                        .then((data) => {
+                            // 输出返回的数据，测试是否成功获取
+                            console.log("Received Data:", data);
+                            // 清空当前比赛列表
+                            competitionList.innerHTML = "";
+
+                            // 更新比赛列表
+                            if (data.length > 0) {
+                                data.forEach((item) => {
+                                    const listItem = `
+                                        <li class="status status-off">
+                                            <div class="img">
+                                                <img src="{{ MEDIA_URL }}images/surf_competition/2eb6e05cd2d74ed8bc312240461f65a2.png">
+                                            </div>
+                                            <div class="content">
+                                                <div class="tit">
+                                                    <h1>${item.name}</h1>
+                                                    <span class="el-tag el-tag--small el-tag--light">${item.category}</span>
+                                                </div>
+                                                <div class="intro">
+                                                    <p>品牌：${item.brand}</p>
+                                                    <p>组织单位：${item.organization}</p>
+                                                </div>
+                                                <div class="info">
+                                                    <span class="bonus">
+                                                        <i class="el-icon-trophy"></i> <font>奖金</font>
+                                                        <em>CNY ¥${item.bonus}</em>
+                                                    </span>
+                                                    <span class="dateTime">
+                                                        <i class="el-icon-time"></i> <font>时间：</font>${item.time}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    `;
+                                    competitionList.insertAdjacentHTML("beforeend", listItem);
+                                });
+                            } else {
+                                competitionList.innerHTML = "<li>暂无相关比赛</li>";
+                            }
+                        })
+                        .catch((error) => {
+                            console.error("Error fetching competition data:", error);
+                        });
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
