@@ -7,40 +7,30 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 
-
-class Contactus(models.Model):
-    contactus_id = models.IntegerField(primary_key=True)
-    date = models.DateField(blank=True, null=True)
-    email = models.CharField(max_length=255, blank=True, null=True)
-
-    class Meta:
-        
-        db_table = 'contactus'
-        
-    def __str__(self):
-        return str(self.contactus_id)
-
-
 class Consult(models.Model):
     contactus_id = models.IntegerField(primary_key=True)
     date = models.DateField(blank=True, null=True)
     sponsor_consultation = models.TextField(blank=True, null=True)
     cooperation_consultation = models.TextField(blank=True, null=True)
     competition_consultation = models.TextField(blank=True, null=True)
-
+    
     class Meta:
         
         db_table = 'consult'
+        verbose_name = '咨询'
+        verbose_name_plural = '咨询'
 
 
 class Feedbackform(models.Model):
     contactus_id = models.IntegerField(primary_key=True)
     date = models.DateField(blank=True, null=True)
     feedbackinformation = models.TextField(blank=True, null=True)
-
+    
     class Meta:
         
         db_table = 'feedbackform'
+        verbose_name = '反馈表单'
+        verbose_name_plural = '反馈表单'
 
 
 class Volunteerrecruitment(models.Model):
@@ -50,7 +40,24 @@ class Volunteerrecruitment(models.Model):
     duty = models.TextField(blank=True, null=True)
     workinghours = models.CharField(max_length=255, blank=True, null=True)
     recruitmentrequirements = models.TextField(blank=True, null=True)
-
+        
     class Meta:
        
         db_table = 'volunteerrecruitment'
+        verbose_name = '志愿者招募'
+        verbose_name_plural = '志愿者招募'
+
+
+class Contactus(models.Model):
+    contactus_id = models.IntegerField(primary_key=True)
+    date = models.DateField(blank=True, null=True)
+    email = models.CharField(max_length=255, blank=True, null=True)
+    
+    def __str__(self):
+        return str(self.contactus_id)
+    
+    class Meta:
+        
+        db_table = 'contactus'
+        verbose_name = '联系我们'
+        verbose_name_plural = '联系我们'
