@@ -13,6 +13,7 @@ SZU 2024 年秋季学期「软件工程」期末大作业，基于 MySQL+Django+
 ## 系统功能 :snake:
 
 待补充
+
 ## 项目结构 :pencil:
 
 ```
@@ -35,21 +36,17 @@ SZU 2024 年秋季学期「软件工程」期末大作业，基于 MySQL+Django+
 
    - 项目参数修改：打开 settings.py 配置文件，找到 MySQL 自定义参数，修改为你自己的配置
 
-4. 项目启动，进入项目 `django_CCOS` 目录，执行：
+4. 项目启动，进入项目 django_CCOS 目录，执行：
    - `python manage.py makemigrations`
    - `python manage.py migrate`
    - `python manage.py runserver`
-   
-5. 前端访问：http://127.0.0.1:8000
 
-5. 后台访问：http://127.0.0.1:8000/admin
+5. 前端访问：<http://127.0.0.1:8000>
+
+5. 后台访问：<http://127.0.0.1:8000/admin>
    - 创建管理员：`python manage.py createsuperuser`
    - 自行添加数据项
 
+## 鸣谢 :<https://github.com/hewei2001love_letter>
 
-
-## 鸣谢 :https://github.com/hewei2001love_letter:
-
-感谢 (https://github.com/hewei2001) 小朋友！
-
-
+感谢 (<https://github.com/hewei2001>) 小朋友！
