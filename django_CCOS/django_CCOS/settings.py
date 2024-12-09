@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'dish',
     'surf_competition',
     'contactus'
+    'home_page'
     # 'order',
 ]
 
