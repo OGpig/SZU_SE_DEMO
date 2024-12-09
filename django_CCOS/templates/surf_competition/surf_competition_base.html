@@ -87,9 +87,10 @@
                             </div>
                             <div class="bd mt30">
                                 <div class="bandAD"><a><!----><img
-                                            src="{{ MEDIA_URL }}images/surf_competition/all_brand.f9249044.jpg"></a></div>
+                                            src="{{ MEDIA_URL }}images/surf_competition/all_brand.f9249044.jpg"></a>
+                                </div>
                                 <ul class="competitionListUl" id="competitionList">
-                                    
+
                                 </ul>
                                 <div class="pageSize">
                                     <div class="el-pagination is-background"><button type="button" disabled="disabled"
@@ -119,7 +120,64 @@
             const categoryList = document.getElementById("categoryList");
             const competitionList = document.getElementById("competitionList");
 
-            // 点击事件监听
+            // 定义函数：获取竞赛数据并更新列表
+            function fetchAndRenderCompetitions(tag = "all") {
+                // 向后端发送请求
+                fetch(`/surf_competition/filter_competition/?category=${tag}`)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        // 清空当前比赛列表
+                        competitionList.innerHTML = "";
+
+                        // 更新比赛列表
+                        if (data.length > 0) {
+                            data.forEach((item) => {
+                                const listItem = `
+                            <li class="status status-off">
+                                <div class="img">
+                                    <img src="{{ MEDIA_URL }}images/surf_competition/2eb6e05cd2d74ed8bc312240461f65a2.png">
+                                </div>
+                                <div class="content">
+                                    <div class="tit">
+                                        <h1>
+                                            <a href="/surf_competition/competition_detail/?id=${item.id}" target="_blank">
+                                            ${item.name}
+                                        </a>
+                                        </h1>
+                                        <span class="el-tag el-tag--small el-tag--light">${item.category}</span>
+                                    </div>
+                                    <div class="intro">
+                                        <p>品牌：${item.brand}</p>
+                                        <p>组织单位：${item.organization}</p>
+                                    </div>
+                                    <div class="info">
+                                        <span class="bonus">
+                                            <i class="el-icon-trophy"></i> <font>奖金</font>
+                                            <em>CNY ¥${item.bonus}</em>
+                                        </span>
+                                        <span class="dateTime">
+                                            <i class="el-icon-time"></i> <font>时间：</font>${item.time}
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                        `;
+                                competitionList.insertAdjacentHTML("beforeend", listItem);
+                            });
+                        } else {
+                            competitionList.innerHTML = "<li>暂无相关比赛</li>";
+                        }
+                    })
+                    .catch((error) => {
+                        console.error("Error fetching competition data:", error);
+                        competitionList.innerHTML = "<li>加载比赛数据失败，请稍后重试。</li>";
+                    });
+            }
+
+            // 默认显示全部竞赛
+            fetchAndRenderCompetitions();
+
+            // 点击事件监听：筛选竞赛
             categoryList.addEventListener("click", function (e) {
                 if (e.target.tagName === "LI") {
                     // 获取点击的类别标签
@@ -131,53 +189,8 @@
                     });
                     e.target.classList.add("active");
 
-                    // 向后端发送请求，获取筛选数据
-                    fetch(`/surf_competition/filter_competition/?category=${tag}`)
-                        .then((response) => response.json())
-                        .then((data) => {
-                            // 输出返回的数据，测试是否成功获取
-                            console.log("Received Data:", data);
-                            // 清空当前比赛列表
-                            competitionList.innerHTML = "";
-
-                            // 更新比赛列表
-                            if (data.length > 0) {
-                                data.forEach((item) => {
-                                    const listItem = `
-                                        <li class="status status-off">
-                                            <div class="img">
-                                                <img src="{{ MEDIA_URL }}images/surf_competition/2eb6e05cd2d74ed8bc312240461f65a2.png">
-                                            </div>
-                                            <div class="content">
-                                                <div class="tit">
-                                                    <h1>${item.name}</h1>
-                                                    <span class="el-tag el-tag--small el-tag--light">${item.category}</span>
-                                                </div>
-                                                <div class="intro">
-                                                    <p>品牌：${item.brand}</p>
-                                                    <p>组织单位：${item.organization}</p>
-                                                </div>
-                                                <div class="info">
-                                                    <span class="bonus">
-                                                        <i class="el-icon-trophy"></i> <font>奖金</font>
-                                                        <em>CNY ¥${item.bonus}</em>
-                                                    </span>
-                                                    <span class="dateTime">
-                                                        <i class="el-icon-time"></i> <font>时间：</font>${item.time}
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    `;
-                                    competitionList.insertAdjacentHTML("beforeend", listItem);
-                                });
-                            } else {
-                                competitionList.innerHTML = "<li>暂无相关比赛</li>";
-                            }
-                        })
-                        .catch((error) => {
-                            console.error("Error fetching competition data:", error);
-                        });
+                    // 获取并渲染筛选数据
+                    fetchAndRenderCompetitions(tag);
                 }
             });
         });
