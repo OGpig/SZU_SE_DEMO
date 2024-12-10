@@ -35,10 +35,7 @@ class Feedbackform(models.Model):
 
 class Volunteerrecruitment(models.Model):
     contactus_id = models.IntegerField(primary_key=True)
-    registrationmethod = models.CharField(max_length=255, blank=True, null=True)
-    volunteerrole = models.CharField(max_length=255, blank=True, null=True)
-    duty = models.TextField(blank=True, null=True)
-    workinghours = models.CharField(max_length=255, blank=True, null=True)
+    date = models.DateField(blank=True, null=True)
     recruitmentrequirements = models.TextField(blank=True, null=True)
         
     class Meta:
