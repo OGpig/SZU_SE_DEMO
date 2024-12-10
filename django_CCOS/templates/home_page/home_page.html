@@ -1,0 +1,1069 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>特色时令产品集市系统</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Alternative to Bootstrap 3 Glyphicons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="{% static 'css/master.css' %}">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark mynav" role="navigation" id="navbar">
+        <div class="container">
+            <div class="navbar-nav align-items-center">
+                <a class="navbar-brand mynav" href="#">特色时令产品集市系统</a>
+            </div>
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="/" class="btn btn-simple">分区</a>
+                <a class="nav-item nav-link" href="/shop" class="btn btn-simple">店铺</a>
+                <a class="nav-item nav-link" href="/dish" class="btn btn-simple">商品</a>
+                <a class="nav-item nav-link" href="/order" class="btn btn-simple">我的订单</a>
+                <a class="nav-item nav-link" href="/surf_competition" class="btn btn-simple">竞赛</a>
+                <a class="nav-item nav-link" href="/home_page" class="btn btn-simple">首页</a>
+                <a class="nav-item nav-link" href="/contactus" class="btn btn-simple">联系我们</a>
+                <a class="nav-item nav-link" href="/customer/info" class="btn btn-simple">个人中心</a>
+            </div>
+
+            <div class="navbar-nav ml-auto">
+                {% if request.session.is_login %}
+                <a class="nav-item nav-link" href="#" class="nav-item nav-link">当前在线：{{ request.session.user_name }}</a>
+                <a class="nav-item nav-link" href="/customer/logout/" class="nav-item nav-link">登出</a>
+                {% else %}
+                <a class="nav-item nav-link" href="/admin/" class="nav-item nav-link">管理员登录</a>
+                <a class="nav-item nav-link" href="/customer/login/" class="nav-item nav-link">顾客登录</a>
+                <a class="nav-item nav-link" href="/customer/register/" class="btn btn-simple">顾客注册</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    
+    <div>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+            }
+
+            #i5q43p6 {
+                font-weight: 700;
+                color: #000000;
+            }
+
+            #i2ghvrx {
+                width: 75px;
+                margin: 0px 5px 0px 0px;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin-top: 0px;
+                margin-right: 0px;
+                margin-bottom: 0px;
+                margin-left: 0px;
+                font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Roboto, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Jhenghei", sans-serif;
+            }
+
+            #i2ghvrx {
+                width: 57px;
+                text-align: center;
+                font-weight: 700;
+                color: rgb(0, 0, 0);
+            }
+
+            .logo path {
+                pointer-events: none;
+                fill: none;
+                stroke-linecap: round;
+                stroke-width: 7;
+                stroke: rgb(255, 255, 255);
+            }
+
+            .wechat-group img {
+                max-width: 220px;
+                height: auto;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+                border-bottom-right-radius: 8px;
+                border-bottom-left-radius: 8px;
+                margin-top: 0px;
+                margin-right: auto;
+                margin-bottom: 0px;
+                margin-left: auto;
+                width: 100%;
+            }
+
+            .welcome-img img {
+                width: 100%;
+            }
+
+            .bg-gradient-primary {
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+                border-bottom-right-radius: 8px;
+                border-bottom-left-radius: 8px;
+            }
+
+            .c5808 {
+                bottom: -0.5rem;
+                right: -2.2rem;
+                z-index: 0;
+            }
+
+            .c5823 {
+                top: -0.5rem;
+                left: -2.5rem;
+                z-index: 0;
+            }
+
+            .c7824 {
+                bottom: 0.5rem;
+                right: -1.7rem;
+                z-index: 0;
+            }
+
+            .c7834 {
+                top: 0.5rem;
+                left: -1.7rem;
+                z-index: 0;
+            }
+
+            .c10146 {
+                bottom: -0.5rem;
+                right: -1.6rem;
+            }
+
+            .c14947 {
+                color: rgb(217, 131, 166);
+            }
+
+            .nav-link.dropdown-item.dropdown-toggle {
+                text-align: center;
+                align-self: auto;
+                width: 90px;
+            }
+
+            .navbar-other.w-100.d-flex.ms-auto {
+                padding: 0px 0px 0px 0;
+            }
+
+            .c17302 {
+                color: black;
+                width: 66.4000244140625px;
+                height: 66px;
+            }
+
+            .c17430 {
+                color: black;
+                width: 66px;
+                height: 66.00000762939453px;
+            }
+
+            .display-1.mb-5.mx-md-n5.mx-lg-0 {
+                text-align: center;
+            }
+
+            .lead.fs-lg.mb-7 {
+                text-align: center;
+            }
+
+            .card-body {
+                bottom: 100px;
+            }
+
+            .c24653 {
+                text-align: center;
+                margin: 20px 0px 20px 0px;
+            }
+
+            .display-4.mb-5 {
+                font-size: 34px;
+            }
+
+            .c24306 {
+                text-align: center;
+                margin: 20px 0px 20px 0px;
+            }
+
+            #irmefjr {
+                width: 57px;
+                text-align: center;
+                font-weight: 700;
+                color: rgb(0, 0, 0);
+            }
+
+            .c63313 {
+                width: 75px;
+                float: left;
+                text-align: center;
+                padding: 24px 0px 0px 0px;
+                margin: 0px 0px 0px 31px;
+                font-weight: 900;
+            }
+
+            .c63593 {
+                font-weight: normal;
+            }
+        </style>
+        <div>
+            <link rel="preload" href="{% static 'css/css_home_page/fonts/Unicons.woff2' %}" as="font" type="font/woff2" crossorigin="" />
+            <nav id="sticky-navbar"
+                class="navbar navbar-expand-lg center-nav transparent navbar-light navbar-clone fixed">
+                <div class="container flex-lg-row flex-nowrap align-items-center">
+                    <div class="navbar-brand w-100"><a href="./home_page.html"><img src="{{ MEDIA_URL }}images/home_page/logo-small-svg.svg"
+                                alt="" /></a></div>
+                    <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
+                        <div class="offcanvas-header d-lg-none">
+                            <h3 class="text-white fs-30 mb-0">Lapus</h3><button type="button"
+                                data-bs-dismiss="offcanvas" aria-label="Close"
+                                class="btn-close btn-close-white">Send</button>
+                        </div>
+                        <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
+                            <ul class="navbar-nav">
+                                <li class="nav-item"><a href="https://www.bilibili.com" class="nav-link">首页</a></li>
+                                <li class="nav-item dropdown"><a href="#" data-bs-toggle="dropdown"
+                                        class="nav-link dropdown-toggle">交流大厅</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown dropdown-submenu dropend"><a href="#"
+                                                data-bs-toggle="dropdown" class="dropdown-item dropdown-toggle">赛事资源</a>
+                                            <ul class="dropdown-menu">
+                                                <li class="nav-item"><a href="./home_page.html"
+                                                        class="dropdown-item">赛事链接</a></li>
+                                                <li class="nav-item"><a href="./home_page.html"
+                                                        class="dropdown-item">赛事课程</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown dropdown-submenu dropend"><a href="#"
+                                                data-bs-toggle="dropdown" class="dropdown-item dropdown-toggle">用户交流</a>
+                                            <ul class="dropdown-menu">
+                                                <li class="nav-item"><a href="./home_page.html"
+                                                        class="dropdown-item">题目解析</a></li>
+                                                <li class="nav-item"><a href="./home_page.html"
+                                                        class="dropdown-item">经验分享</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item"><a href="./home_page.html" class="dropdown-item">组队招募</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown"><a href="#" data-bs-toggle="dropdown"
+                                        class="nav-link dropdown-toggle">赛事回顾</a>
+                                    <div class="dropdown-menu dropdown-lg">
+                                        <div class="dropdown-lg-content">
+                                            <div>
+                                                <h6 class="dropdown-header">1竞赛</h6>
+                                                <ul class="list-unstyled">
+                                                    <li><a href="./home_page.html" class="dropdown-item">3竞赛</a></li>
+                                                    <li><a href="./home_page.html" class="dropdown-item">5竞赛</a></li>
+                                                </ul>
+                                            </div><!-- /.column -->
+                                            <div>
+                                                <h6 class="dropdown-header">2竞赛</h6>
+                                                <ul class="list-unstyled">
+                                                    <li><a href="./home_page.html" class="dropdown-item">4竞赛</a>
+                                                    </li>
+                                                    <li><a href="./home_page.html" class="dropdown-item">6竞赛</a>
+                                                    </li>
+                                                </ul>
+                                            </div><!-- /.column -->
+                                        </div><!-- /auto-column -->
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown"><a href="#" data-bs-toggle="dropdown"
+                                        class="nav-link dropdown-toggle">联系我们</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item"><a href="./home_page.html" class="dropdown-item">反馈通道</a></li>
+                                        <li class="nav-item"><a href="./home_page.html" class="dropdown-item">官方链接</a></li>
+                                        <li class="dropdown dropdown-submenu dropend"><a href="#"
+                                                data-bs-toggle="dropdown" class="dropdown-item dropdown-toggle">联系方式</a>
+                                            <ul class="dropdown-menu">
+                                                <li class="nav-item"><a href="./home_page.html"
+                                                        class="dropdown-item">联系电话</a></li>
+                                                <li class="nav-item"><a href="./home_page.html"
+                                                        class="dropdown-item">电子邮件</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul><!-- /.navbar-nav -->
+                            <div class="offcanvas-footer d-lg-none">
+                                <div><a href="mailto:first.last@email.com" class="link-inverse">help@lapus.cn</a><br />
+                                    13799264013 <br />
+                                    <nav class="nav social social-white mt-4"><a href="#"><i
+                                                class="uil uil-twitter"></i></a><a href="#"><i
+                                                class="uil uil-facebook-f"></i></a><a href="#"><i
+                                                class="uil uil-dribbble"></i></a><a href="#"><i
+                                                class="uil uil-instagram"></i></a><a href="#"><i
+                                                class="uil uil-youtube"></i></a></nav><!-- /.social -->
+                                </div>
+                            </div><!-- /.offcanvas-footer -->
+                        </div><!-- /.offcanvas-body -->
+                    </div><!-- /.navbar-collapse -->
+                    <div class="navbar-other w-100 d-flex ms-auto"><input type="text" id="iu7iriq-2"
+                            class="c24306" /><span class="c63313"><span id="isrt0zb" class="c63593"><b
+                                    id="i5q43p6">登录</b></span></span>
+                        <ul class="navbar-nav flex-row align-items-center ms-auto">
+                            <li class="nav-item dropdown language-select text-uppercase">
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item"><a href="#" class="dropdown-item">英语</a></li>
+                                    <li class="nav-item"><a href="#" class="dropdown-item">德语</a></li>
+                                    <li class="nav-item"><a href="#" class="dropdown-item">法语</a></li>
+                                </ul>
+                            </li><a href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false" class="nav-link dropdown-item dropdown-toggle">中文</a>
+                            <li class="nav-item"><a data-bs-toggle="offcanvas" data-bs-target="#offcanvas-info"
+                                    class="nav-link"><i class="uil uil-info-circle"></i></a></li>
+                            <li class="nav-item d-lg-none"><button type="button"
+                                    class="hamburger offcanvas-nav-btn">Send</button></li>
+                        </ul><!-- /.navbar-nav -->
+                    </div><img
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3R5bGU9ImZpbGw6IHJnYmEoMCwwLDAsMC4xNSk7IHRyYW5zZm9ybTogc2NhbGUoMC43NSkiPgogICAgICAgIDxwYXRoIGQ9Ik04LjUgMTMuNWwyLjUgMyAzLjUtNC41IDQuNSA2SDVtMTYgMVY1YTIgMiAwIDAgMC0yLTJINWMtMS4xIDAtMiAuOS0yIDJ2MTRjMCAxLjEuOSAyIDIgMmgxNGMxLjEgMCAyLS45IDItMnoiPjwvcGF0aD4KICAgICAgPC9zdmc+"
+                        class="c17430" /><!-- /.navbar-other -->
+                </div><!-- /.container -->
+            </nav>
+            <link rel="shortcut icon" href="{{ MEDIA_URL }}images/home_page/favicon.png" />
+            <link rel="stylesheet" href="{% static 'css/css_home_page/plugins.css' %}" />
+            <link rel="stylesheet" href="{% static 'css/css_home_page/style.css' %}" />
+            <link rel="stylesheet" href="{% static 'css/css_home_page/yellow.css' %}" />
+            <link rel="preload" href="{% static 'css/css_home_page/thicccboi.css' %}" as="style" />
+            <div class="content-wrapper">
+                <header class="wrapper bg-soft-primary">
+                    <nav class="navbar navbar-expand-lg center-nav transparent navbar-light">
+                        <div class="container flex-lg-row flex-nowrap align-items-center">
+                            <div class="navbar-brand w-100"><a href="./home_page.html"><img src="{{ MEDIA_URL }}images/home_page/logo-small-svg.svg"
+                                        alt="" /></a></div>
+                            <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
+                                <div class="offcanvas-header d-lg-none">
+                                    <h3 class="text-white fs-30 mb-0">Lapus</h3><button type="button"
+                                        data-bs-dismiss="offcanvas" aria-label="Close"
+                                        class="btn-close btn-close-white">Send</button>
+                                </div>
+                                <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
+                                    <ul class="navbar-nav">
+                                        <li class="nav-item"><a href="https://htmlpage.cn" class="nav-link">首页</a></li>
+                                        <li class="nav-item dropdown"><a href="#" data-bs-toggle="dropdown"
+                                                class="nav-link dropdown-toggle">交流社区</a>
+                                            <ul class="dropdown-menu">
+                                                <li class="dropdown dropdown-submenu dropend"><a href="#"
+                                                        data-bs-toggle="dropdown"
+                                                        class="dropdown-item dropdown-toggle">赛事资源</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li class="nav-item"><a href="./services.html"
+                                                                class="dropdown-item">赛事链接</a></li>
+                                                        <li class="nav-item"><a href="./services2.html"
+                                                                class="dropdown-item">赛事课程</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown dropdown-submenu dropend"><a href="#"
+                                                        data-bs-toggle="dropdown"
+                                                        class="dropdown-item dropdown-toggle">用户交流</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li class="nav-item"><a href="./about.html"
+                                                                class="dropdown-item">题目解析</a></li>
+                                                        <li class="nav-item"><a href="./about2.html"
+                                                                class="dropdown-item">经验分享</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="nav-item"><a href="./pricing.html"
+                                                        class="dropdown-item">组队招募</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item dropdown"><a href="#" data-bs-toggle="dropdown"
+                                                class="nav-link dropdown-toggle">赛事参与</a>
+                                            <div class="dropdown-menu dropdown-lg">
+                                                <div class="dropdown-lg-content">
+                                                    <div>
+                                                        <h6 class="dropdown-header">1竞赛</h6>
+                                                        <ul class="list-unstyled">
+                                                            <li><a href="./projects.html" class="dropdown-item">3竞赛</a>
+                                                            </li>
+                                                            <li><a href="./projects2.html" class="dropdown-item">5竞赛</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div><!-- /.column -->
+                                                    <div>
+                                                        <h6 class="dropdown-header">2竞赛</h6>
+                                                        <ul class="list-unstyled">
+                                                            <li><a href="./single-project.html"
+                                                                    class="dropdown-item">4竞赛</a></li>
+                                                            <li><a href="./single-project2.html"
+                                                                    class="dropdown-item">6竞赛</a></li>
+                                                        </ul>
+                                                    </div><!-- /.column -->
+                                                </div><!-- /auto-column -->
+                                            </div>
+                                        </li>
+                                        <li class="nav-item dropdown"><a href="#" data-bs-toggle="dropdown"
+                                                class="nav-link dropdown-toggle">联系我们</a>
+                                            <ul class="dropdown-menu">
+                                                <li class="nav-item"><a href="./blog.html"
+                                                        class="dropdown-item">反馈通道</a></li>
+                                                <li class="nav-item"><a href="./blog2.html"
+                                                        class="dropdown-item">官方链接</a></li>
+                                                <li class="dropdown dropdown-submenu dropend"><a href="#"
+                                                        data-bs-toggle="dropdown"
+                                                        class="dropdown-item dropdown-toggle">联系方式</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li class="nav-item"><a href="./blog-post.html"
+                                                                class="dropdown-item">联系电话</a></li>
+                                                        <li class="nav-item"><a href="./blog-post2.html"
+                                                                class="dropdown-item">电子邮件</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul><!-- /.navbar-nav -->
+                                    <div class="offcanvas-footer d-lg-none">
+                                        <div><a href="mailto:first.last@email.com"
+                                                class="link-inverse">help@lapus.cn</a><br /> 13799264013 <br />
+                                            <nav class="nav social social-white mt-4"><a href="#"><i
+                                                        class="uil uil-twitter"></i></a><a href="#"><i
+                                                        class="uil uil-facebook-f"></i></a><a href="#"><i
+                                                        class="uil uil-dribbble"></i></a><a href="#"><i
+                                                        class="uil uil-instagram"></i></a><a href="#"><i
+                                                        class="uil uil-youtube"></i></a></nav><!-- /.social -->
+                                        </div>
+                                    </div><!-- /.offcanvas-footer -->
+                                </div><!-- /.offcanvas-body -->
+                            </div><!-- /.navbar-collapse -->
+                            <ul class="dropdown-menu">
+                                <li class="nav-item"><a href="#" class="dropdown-item">英语</a></li>
+                                <li class="nav-item"><a href="#" class="dropdown-item">德语</a></li>
+                                <li class="nav-item"><a href="#" class="dropdown-item">法语</a></li>
+                            </ul>
+                            <div class="navbar-other w-100 d-flex ms-auto"><a class="c14947"><b></b></a><input
+                                    type="text" id="i7zkqwe-2" class="c24653" />
+                                <ul class="navbar-nav flex-row align-items-center ms-auto">
+                                    <li class="nav-item dropdown language-select text-uppercase"></li><span
+                                        id="i2ghvrx">登录</span><a href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false"
+                                        class="nav-link dropdown-item dropdown-toggle">中文</a>
+                                    <li class="nav-item"><a data-bs-toggle="offcanvas" data-bs-target="#offcanvas-info"
+                                            class="nav-link"><i class="uil uil-info-circle"></i></a></li>
+                                    <li class="nav-item d-lg-none"><button type="button"
+                                            class="hamburger offcanvas-nav-btn">Send</button></li>
+                                </ul><!-- /.navbar-nav -->
+                            </div><img
+                                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3R5bGU9ImZpbGw6IHJnYmEoMCwwLDAsMC4xNSk7IHRyYW5zZm9ybTogc2NhbGUoMC43NSkiPgogICAgICAgIDxwYXRoIGQ9Ik04LjUgMTMuNWwyLjUgMyAzLjUtNC41IDQuNSA2SDVtMTYgMVY1YTIgMiAwIDAgMC0yLTJINWMtMS4xIDAtMiAuOS0yIDJ2MTRjMCAxLjEuOSAyIDIgMmgxNGMxLjEgMCAyLS45IDItMnoiPjwvcGF0aD4KICAgICAgPC9zdmc+"
+                                class="c17302" /><!-- /.navbar-other -->
+                        </div><!-- /.container -->
+                    </nav><!-- /.navbar -->
+                    <div id="offcanvas-info" data-bs-scroll="true" class="offcanvas offcanvas-end text-inverse">
+                        <div class="offcanvas-header">
+                            <h3 class="text-white fs-30 mb-0">软工一组</h3><button type="button" data-bs-dismiss="offcanvas"
+                                aria-label="Close" class="btn-close btn-close-white">Send</button>
+                        </div>
+                        <div class="offcanvas-body pb-6">
+                            <div class="widget mb-8">
+                                <p>软工一组由7位数计班同学组成，其中只有一位女生。</p>
+                            </div><!-- /.widget -->
+                            <div class="widget mb-8">
+                                <h4 class="widget-title text-white mb-3">联系我们</h4>
+                                <address> 中国 · 广东<br />深圳大学</address>1234567<a
+                                    href="mailto:first.last@email.com">@</a>szu<br /> 12311451419
+                            </div><!-- /.widget -->
+                            <div class="widget mb-8">
+                                <h4 class="widget-title text-white mb-3">了解更多</h4>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">关于我们</a></li>
+                                    <li><a href="#">隐私保护</a></li>
+                                    <li><a href="#">法律法规</a></li>
+                                    <li><a href="#">联系我们</a></li>
+                                </ul>
+                            </div><!-- /.widget -->
+                            <div class="widget">
+                                <h4 class="widget-title text-white mb-3">关注我们</h4>
+                                <nav class="nav social social-white"><a href="#"><i class="uil uil-twitter"></i></a><a
+                                        href="#"><i class="uil uil-facebook-f"></i></a><a href="#"><i
+                                            class="uil uil-dribbble"></i></a><a href="#"><i
+                                            class="uil uil-instagram"></i></a><a href="#"><i
+                                            class="uil uil-youtube"></i></a></nav><!-- /.social -->
+                            </div><!-- /.widget -->
+                        </div><!-- /.offcanvas-body -->
+                    </div><!-- /.offcanvas -->
+                </header><!-- /header -->
+                <section class="wrapper bg-gradient-primary">
+                    <div class="container pt-10 pt-md-14 pb-8 text-center">
+                        <link rel="stylesheet" href="{% static 'css/css_home_page/plugins.css' %}" />
+                        <link rel="stylesheet" href="{% static 'css/css_home_page/style.css' %}" /><!--/.card-footer -->
+                        <script src="{% static 'js/js_home_page/plugins.js' %}"></script>
+                        <script src="{% static 'js/theme.js' %}"></script>
+                        <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+                            <div class="col-lg-7">
+                                <figure><img src="{{ MEDIA_URL }}images/home_page/i2.png" alt="" class="w-auto" /></figure>
+                            </div><!-- /column -->
+                            <div class="col-md-10 offset-md-1 offset-lg-0 col-lg-5 text-center text-lg-start">
+                                <h1 class="display-1 mb-5 mx-md-n5 mx-lg-0">国内遥遥领先的<br />竞赛赛咨询平台</h1>
+                                <p class="lead fs-lg mb-7">轻松获取赛事信息，快人一步</p><span><a href="https://htmlpage.cn/builder/"
+                                        class="btn btn-primary rounded-pill me-2">即刻体验</a></span>
+                            </div><!-- /column -->
+                        </div><!-- /.row -->
+                    </div><!-- /.container -->
+                </section><!-- /section -->
+                <section class="wrapper bg-light">
+                    <div class="container pt-14 pt-md-16">
+                        <div class="row text-center">
+                            <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+                                <h2 class="fs-16 text-uppercase text-muted mb-3">主要功能</h2>
+                                <h3 class="display-4 mb-10 px-xl-10">简洁易用，满足你的大赛需求</h3>
+                            </div><!-- /column -->
+                        </div><!-- /.row -->
+                        <div class="position-relative">
+                            <div data-rellax-speed="1" id="i1nu62"
+                                class="shape rounded-circle bg-soft-blue rellax w-16 h-16 c5808"></div>
+                            <div data-rellax-speed="1" id="i1q8c8" class="shape bg-dot primary rellax w-16 h-17 c5823">
+                            </div>
+                            <div class="row gx-md-5 gy-5 text-center">
+                                <div class="col-md-6 col-xl-3">
+                                    <div class="card shadow-lg">
+                                        <div class="card-body"><img src="{{ MEDIA_URL }}images/home_page/search-2.svg" alt=""
+                                                class="svg-inject icon-svg icon-svg-md text-yellow mb-3" />
+                                            <h4>所见即所得</h4>
+                                            <p class="mb-2">各种大赛资源，所见即所得</p><a href="#"
+                                                class="more hover link-yellow">了解更多</a>
+                                        </div><!--/.card-body -->
+                                    </div><!--/.card -->
+                                </div><!--/column -->
+                                <div class="col-md-6 col-xl-3">
+                                    <div class="card shadow-lg">
+                                        <div class="card-body"><img src="{{ MEDIA_URL }}images/home_page/browser.svg" alt=""
+                                                class="svg-inject icon-svg icon-svg-md text-red mb-3" />
+                                            <h4>参加竞赛</h4>
+                                            <p class="mb-2">多种学科，多条赛道，多个方向，就是现在</p><a href="#"
+                                                class="more hover link-red">了解更多</a>
+                                        </div><!--/.card-body -->
+                                    </div><!--/.card -->
+                                </div><!--/column -->
+                                <div class="col-md-6 col-xl-3">
+                                    <div class="card shadow-lg">
+                                        <div class="card-body"><img src="{{ MEDIA_URL }}images/home_page/chat-2.svg" alt=""
+                                                class="svg-inject icon-svg icon-svg-md text-green mb-3" />
+                                            <h4>组队大厅</h4>
+                                            <p class="mb-2">和众多大赛参赛者一起组队</p><a href="#"
+                                                class="more hover link-green">了解更多</a>
+                                        </div><!--/.card-body -->
+                                    </div><!--/.card -->
+                                </div><!--/column -->
+                                <div class="col-md-6 col-xl-3">
+                                    <div class="card shadow-lg">
+                                        <div class="card-body"><img src="{{ MEDIA_URL }}images/home_page/megaphone.svg" alt=""
+                                                class="svg-inject icon-svg icon-svg-md text-blue mb-3" />
+                                            <h4>赛事资源</h4>
+                                            <p class="mb-2">了解你的赛事，知己知彼百战百胜</p><a href="#"
+                                                class="more hover link-blue">了解更多</a>
+                                        </div><!--/.card-body -->
+                                    </div><!--/.card -->
+                                </div><!--/column -->
+                            </div><!--/.row -->
+                        </div><!-- /.position-relative -->
+                    </div><!-- /.container -->
+                </section><!-- /section -->
+                <section class="wrapper bg-gradient-reverse-primary">
+                    <div class="container py-16 py-md-18">
+                        <div class="row gx-lg-8 gx-xl-12 gy-10 mb-8 align-items-center">
+                            <div class="col-lg-7 order-lg-2">
+                                <figure><img src="{{ MEDIA_URL }}images/home_page/i3.png" alt="" class="w-auto" /></figure>
+                            </div><!--/column -->
+                            <div class="col-lg-5">
+                                <h2 class="fs-16 text-uppercase text-muted mb-3">交流大厅</h2>
+                                <h3 class="display-4 mb-5">多人在线交流竞赛相关事项</h3>
+                                <p class="mb-7">
+                                    包括赛事专家、课题组、老师、研究生、往届赛事选手和参赛者等，大家在这里可以分享往届赛事资源、交流赛事参加经验、进行问题讨论、答疑解惑，还可以发起组队招募寻找竞赛队友。
+                                </p>
+                                <div class="row">
+                                    <div class="col-lg-9">
+                                        <form method="get" action="#">
+                                            <div class="form-floating input-group"><a
+                                                    href="https://htmlpage.cn/builder/" class="btn btn-primary">参与交流</a>
+                                            </div>
+                                        </form>
+                                    </div><!-- /column -->
+                                </div><!-- /.row -->
+                            </div><!--/column -->
+                        </div><!--/.row -->
+                    </div><!-- /.container -->
+                </section><!-- /section -->
+                <section class="wrapper bg-light angled upper-start lower-start">
+                    <div class="container py-14 pt-md-17 pb-md-15">
+                        <div class="row gx-md-8 gx-xl-12 gy-10 mb-14 mb-md-18 align-items-center">
+                            <div class="col-lg-6 order-lg-2">
+                                <div class="card shadow-lg me-lg-6">
+                                    <div class="card-body p-6">
+                                        <div class="d-flex flex-row">
+                                            <div><span
+                                                    class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span
+                                                        class="number">01</span></span></div>
+                                            <div>
+                                                <h4 class="mb-1">赛事链接</h4>
+                                                <p class="mb-0">我们汇总了多学科多赛道的竞赛链接，选择竞赛开始你的竞赛之旅</p>
+                                            </div>
+                                        </div>
+                                    </div><!--/.card-body -->
+                                </div><!--/.card -->
+                                <div class="card shadow-lg ms-lg-13 mt-6">
+                                    <div class="card-body p-6">
+                                        <div class="d-flex flex-row">
+                                            <div><span
+                                                    class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span
+                                                        class="number">02</span></span></div>
+                                            <div>
+                                                <h4 class="mb-1">赛事课程</h4>
+                                                <p class="mb-0">根据自身需要，学习对应赛事课程内容，为竞赛打下基础</p>
+                                            </div>
+                                        </div>
+                                    </div><!--/.card-body -->
+                                </div><!--/.card -->
+                                <div class="card shadow-lg mx-lg-6 mt-6">
+                                    <div class="card-body p-6">
+                                        <div class="d-flex flex-row">
+                                            <div><span
+                                                    class="icon btn btn-circle btn-lg btn-soft-primary pe-none me-4"><span
+                                                        class="number">03</span></span></div>
+                                            <div>
+                                                <h4 class="mb-1">更多资源获取</h4>
+                                                <p class="mb-0">赛事的相关平台和相关文件都在这里，还有往届参赛者的热心分享！</p>
+                                            </div>
+                                        </div>
+                                    </div><!--/.card-body -->
+                                </div><!--/.card -->
+                            </div><!--/column -->
+                            <div class="col-lg-6">
+                                <h2 class="fs-16 text-uppercase text-muted mb-3">资源推送</h2>
+                                <h3 class="display-4 mb-5">竞赛资源即刻体验，无需等待</h3>
+                                <p>赛事链接、赛事课程、赛事相关平台和文件等，就在这里！<br />这里汇总了各类资源，点击即可获取。</p>
+                                <p class="mb-6">所见即所得！</p><a href="https://htmlpage.cn/builder/"
+                                    class="btn btn-primary rounded-pill mb-0">马上获取</a>
+                            </div><!--/column -->
+                        </div><!--/.row -->
+                        <div class="row gx-lg-8 gx-xl-12 gy-10 mb-lg-22 mb-xl-24 align-items-center">
+                            <div class="col-lg-7">
+                                <figure><img src="{{ MEDIA_URL }}images/home_page/i6.png" alt="" class="w-auto" /></figure>
+                            </div><!--/column -->
+                            <div class="col-lg-5">
+                                <h2 class="fs-16 text-uppercase text-muted mb-3">服务优势</h2>
+                                <h3 class="display-4 mb-7">拖拽式编程，无需代码经验，基于页面模块自由组合，可视化编辑制作网页更方便</h3>
+                                <div id="accordionExample" class="accordion accordion-wrapper">
+                                    <div class="card plain accordion-item">
+                                        <div id="headingOne" class="card-header"><button type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                                aria-expanded="true" aria-controls="collapseOne"
+                                                class="accordion-button">Send</button></div><!--/.card-header -->
+                                        <div id="collapseOne" aria-labelledby="headingOne"
+                                            data-bs-parent="#accordionExample" class="accordion-collapse collapse show">
+                                            <div class="card-body">
+                                                <p>美观大方的外观设计，完美契合用户日常操作习惯，每一个按钮的放置都经过深思熟虑。</p>
+                                            </div><!--/.card-body -->
+                                        </div><!--/.accordion-collapse -->
+                                    </div><!--/.accordion-item -->
+                                    <div class="card plain accordion-item">
+                                        <div id="headingTwo" class="card-header"><button type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                                aria-expanded="false" aria-controls="collapseTwo"
+                                                class="collapsed">支持响应式</button></div><!--/.card-header -->
+                                        <div id="collapseTwo" aria-labelledby="headingTwo"
+                                            data-bs-parent="#accordionExample" class="accordion-collapse collapse">
+                                            <div class="card-body">
+                                                <p>一套代码即可支持桌面、平板以及手机端，为企业节省大量开发成本支出。</p>
+                                            </div><!--/.card-body -->
+                                        </div><!--/.accordion-collapse -->
+                                    </div><!--/.accordion-item -->
+                                    <div class="card plain accordion-item">
+                                        <div id="headingThree" class="card-header"><button type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                                aria-expanded="false" aria-controls="collapseThree"
+                                                class="collapsed">简洁易用</button></div><!--/.card-header -->
+                                        <div id="collapseThree" aria-labelledby="headingThree"
+                                            data-bs-parent="#accordionExample" class="accordion-collapse collapse">
+                                            <div class="card-body">
+                                                <p>可视化编辑，无需代码经验，无开发经验的用户也可以轻松上手，做网页很轻松！</p>
+                                            </div><!--/.card-body -->
+                                        </div><!--/.accordion-collapse -->
+                                    </div><!--/.accordion-item -->
+                                </div><!--/.accordion -->
+                            </div><!--/column -->
+                        </div><!--/.row -->
+                    </div><!-- /.container -->
+                </section><!-- /section -->
+                <section class="wrapper bg-gradient-primary">
+                    <div class="container py-14 pt-md-16 pb-md-18">
+                        <div class="position-relative mt-8 mt-lg-n23 mt-xl-n25">
+                            <div class="row text-center">
+                                <div class="col-lg-8 col-xl-7 col-xxl-6 mx-auto">
+                                    <h2 class="fs-16 text-uppercase text-muted mb-3">开发团队</h2>
+                                    <h3 class="display-4 mb-10 px-md-13 px-lg-4 px-xl-0">专业工程师并肩协作</h3>
+                                </div><!-- /column -->
+                            </div><!-- /.row -->
+                            <div class="position-relative">
+                                <div data-rellax-speed="1" id="ikmr0c" class="shape bg-dot blue rellax w-16 h-17 c7824">
+                                </div>
+                                <div data-rellax-speed="1" id="iowgbi"
+                                    class="shape rounded-circle bg-line red rellax w-16 h-16 c7834"></div>
+                                <div class="row grid-view gy-6 gy-xl-0">
+                                    <div class="col-md-6 col-xl-3">
+                                        <div class="card shadow-lg">
+                                            <div class="card-body"><img src="{{ MEDIA_URL }}images/home_page/te1.jpg" alt=""
+                                                    class="rounded-circle w-15 mb-4" />
+                                                <h4 class="mb-1">Coriss Ambady</h4>
+                                                <div class="meta mb-2">产品经理</div>
+                                                <p class="mb-2">产品负责人</p>
+                                                <nav class="nav social mb-0"><a href="#"><i
+                                                            class="uil uil-twitter"></i></a><a href="#"><i
+                                                            class="uil uil-facebook-f"></i></a><a href="#"><i
+                                                            class="uil uil-dribbble"></i></a></nav><!-- /.social -->
+                                            </div><!--/.card-body -->
+                                        </div><!-- /.card -->
+                                    </div><!--/column -->
+                                    <div class="col-md-6 col-xl-3">
+                                        <div class="card shadow-lg">
+                                            <div class="card-body"><img src="{{ MEDIA_URL }}images/home_page/te2.jpg" alt=""
+                                                    class="rounded-circle w-15 mb-4" />
+                                                <h4 class="mb-1">Cory Zamora</h4>
+                                                <div class="meta mb-2">体验设计师</div>
+                                                <p class="mb-2">产品用户体验负责人</p>
+                                                <nav class="nav social mb-0"><a href="#"><i
+                                                            class="uil uil-twitter"></i></a><a href="#"><i
+                                                            class="uil uil-facebook-f"></i></a><a href="#"><i
+                                                            class="uil uil-dribbble"></i></a></nav><!-- /.social -->
+                                            </div><!--/.card-body -->
+                                        </div><!-- /.card -->
+                                    </div><!--/column -->
+                                    <div class="col-md-6 col-xl-3">
+                                        <div class="card shadow-lg">
+                                            <div class="card-body"><img src="{{ MEDIA_URL }}images/home_page/te3.jpg" alt=""
+                                                    class="rounded-circle w-15 mb-4" />
+                                                <h4 class="mb-1">Nikolas Brooten</h4>
+                                                <div class="meta mb-2">架构师</div>
+                                                <p class="mb-2">产品架构负责人</p>
+                                                <nav class="nav social mb-0"><a href="#"><i
+                                                            class="uil uil-twitter"></i></a><a href="#"><i
+                                                            class="uil uil-facebook-f"></i></a><a href="#"><i
+                                                            class="uil uil-dribbble"></i></a></nav><!-- /.social -->
+                                            </div><!--/.card-body -->
+                                        </div><!-- /.card -->
+                                    </div><!--/column -->
+                                    <div class="col-md-6 col-xl-3">
+                                        <div class="card shadow-lg">
+                                            <div class="card-body"><img src="{{ MEDIA_URL }}images/home_page/te4.jpg" alt=""
+                                                    class="rounded-circle w-15 mb-4" />
+                                                <h4 class="mb-1">Jackie Sanders</h4>
+                                                <div class="meta mb-2">UI设计师</div>
+                                                <p class="mb-2">产品视觉负责人</p>
+                                                <nav class="nav social mb-0"><a href="#"><i
+                                                            class="uil uil-twitter"></i></a><a href="#"><i
+                                                            class="uil uil-facebook-f"></i></a><a href="#"><i
+                                                            class="uil uil-dribbble"></i></a></nav><!-- /.social -->
+                                            </div><!--/.card-body -->
+                                        </div><!-- /.card -->
+                                    </div><!--/column -->
+                                </div><!--/.row -->
+                            </div><!-- /.position-relative -->
+                        </div><!-- /div -->
+                    </div><!-- /.container -->
+                </section><!-- /section -->
+                <section class="wrapper bg-light">
+                    <div class="container">
+                        <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+                            <div class="col-lg-7 order-lg-2">
+                                <figure><img src="{{ MEDIA_URL }}images/home_page/i8.png" alt="" class="w-auto" /></figure>
+                            </div><!--/column -->
+                            <div class="col-lg-5">
+                                <h2 class="fs-16 text-uppercase text-muted mb-3">解决方案</h2>
+                                <h3 class="display-4 mb-5">花更少的时间，办更多事情</h3>
+                                <p class="mb-6">高效的页面产出，为开发者节约大量时间，让您更专注产品的业务</p>
+                                <div class="row gy-3">
+                                    <div class="col-xl-6">
+                                        <ul class="icon-list bullet-bg bullet-soft-primary mb-0">
+                                            <li><span><i class="uil uil-check"></i></span><span>基于模板创建页面</span></li>
+                                            <li class="mt-3"><span><i
+                                                        class="uil uil-check"></i></span><span>点击模板即可开始创作页面</span></li>
+                                        </ul>
+                                    </div><!--/column -->
+                                    <div class="col-xl-6">
+                                        <ul class="icon-list bullet-bg bullet-soft-primary mb-0">
+                                            <li><span><i class="uil uil-check"></i></span><span>基于页面模块创建页面</span></li>
+                                            <li class="mt-3"><span><i
+                                                        class="uil uil-check"></i></span><span>多种页面模块自由组合</span></li>
+                                        </ul>
+                                    </div><!--/column -->
+                                </div><!--/.row -->
+                            </div><!--/column -->
+                        </div><!--/.row -->
+                    </div><!-- /.container -->
+                </section><!-- /section -->
+                <section class="wrapper bg-gradient-reverse-primary">
+                    <div class="container py-14 py-md-18">
+                        <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+                            <div class="col-lg-7">
+                                <div class="row gx-md-5 gy-5">
+                                    <div class="col-md-6 col-xl-5 align-self-end">
+                                        <div class="card shadow-lg">
+                                            <div class="card-body">
+                                                <blockquote class="icon mb-0">
+                                                    <p>“好用的一个在线工具，简单操作就可以导出页面”</p>
+                                                    <div class="blockquote-details">
+                                                        <div class="info p-0">
+                                                            <h5 class="mb-1">张芝山</h5>
+                                                            <p class="mb-0">体验设计师</p>
+                                                        </div>
+                                                    </div>
+                                                </blockquote>
+                                            </div><!--/.card-body -->
+                                        </div><!--/.card -->
+                                    </div><!--/column -->
+                                    <div class="col-md-6 align-self-end">
+                                        <div class="card shadow-lg">
+                                            <div class="card-body">
+                                                <blockquote class="icon mb-0">
+                                                    <p>“导出的源码可以直接用在项目里，标准的布局，放哪都好看！”</p>
+                                                    <div class="blockquote-details">
+                                                        <div class="info p-0">
+                                                            <h5 class="mb-1">陈向东</h5>
+                                                            <p class="mb-0">在校学生</p>
+                                                        </div>
+                                                    </div>
+                                                </blockquote>
+                                            </div><!--/.card-body -->
+                                        </div><!--/.card -->
+                                    </div><!--/column -->
+                                    <div class="col-md-6 col-xl-5 offset-xl-1">
+                                        <div class="card shadow-lg">
+                                            <div class="card-body">
+                                                <blockquote class="icon mb-0">
+                                                    <p>“用工具做活动页面真的很方便，关键还很多免费模板，没有功能限制！”</p>
+                                                    <div class="blockquote-details">
+                                                        <div class="info p-0">
+                                                            <h5 class="mb-1">邱小红</h5>
+                                                            <p class="mb-0">品牌运营</p>
+                                                        </div>
+                                                    </div>
+                                                </blockquote>
+                                            </div><!--/.card-body -->
+                                        </div><!--/.card -->
+                                    </div><!--/column -->
+                                    <div class="col-md-6 align-self-start">
+                                        <div class="card shadow-lg">
+                                            <div class="card-body">
+                                                <blockquote class="icon mb-0">
+                                                    <p>“大体操作还算合理，但希望能更简洁一些，这样对我们小白用户会更友好。”</p>
+                                                    <div class="blockquote-details">
+                                                        <div class="info p-0">
+                                                            <h5 class="mb-1">李天河</h5>
+                                                            <p class="mb-0">在校学生</p>
+                                                        </div>
+                                                    </div>
+                                                </blockquote>
+                                            </div><!--/.card-body -->
+                                        </div><!--/.card -->
+                                    </div><!--/column -->
+                                </div><!--/.row -->
+                            </div><!--/column -->
+                            <div class="col-lg-5">
+                                <h2 class="fs-16 text-uppercase text-muted mb-3 mt-lg-n6">用户评价</h2>
+                                <h3 class="display-4 mb-5">感谢所有用户的建议和意见</h3>
+                                <p>一路走来，相信有你们的支持和鼓励，我们会做的更好！</p><a href="https://htmlpage.cn/contact"
+                                    class="btn btn-primary rounded-pill mt-3">给我们留言</a>
+                            </div><!--/column -->
+                        </div><!--/.row -->
+                    </div><!-- /.container -->
+                </section><!-- /section -->
+                <section class="wrapper bg-light angled upper-end lower-end">
+                    <div class="container py-14 pt-md-14 pb-md-18">
+                        <div class="row gy-6 mb-14 mb-md-18">
+                            <div class="col-lg-4">
+                                <h2 class="fs-16 text-uppercase text-muted mt-lg-18 mb-3">产品报价</h2>
+                                <h3 class="display-4 mb-3">编辑器高级会员</h3>
+                                <p>支持有效期内无限次数使用<a href="#" class="hover">VIP页面模块</a>以及<a href="#"
+                                        class="hover">VIP页面模板</a></p><a href="#"
+                                    class="btn btn-primary rounded-pill mt-2">查看所有价格</a>
+                            </div><!--/column -->
+                            <div class="col-lg-7 offset-lg-1 pricing-wrapper">
+                                <div
+                                    class="pricing-switcher-wrapper switcher justify-content-start justify-content-lg-end">
+                                    <p class="mb-0 pe-3">三天</p>
+                                    <div class="pricing-switchers">
+                                        <div class="pricing-switcher pricing-switcher-active"></div>
+                                        <div class="pricing-switcher"></div>
+                                        <div class="switcher-button bg-primary"></div>
+                                    </div>
+                                    <p class="mb-0 ps-3">包月 <span class="text-red">(更优惠)</span></p>
+                                </div>
+                                <div class="row gy-6 position-relative mt-5">
+                                    <div data-rellax-speed="1" id="irpz4e"
+                                        class="shape bg-dot red rellax w-16 h-18 c10146"></div>
+                                    <div class="col-md-6">
+                                        <div class="pricing card shadow-lg">
+                                            <div class="card-body pb-12">
+                                                <div class="prices text-dark">
+                                                    <div class="price price-show justify-content-start"><span
+                                                            class="price-currency">￥</span><span
+                                                            class="price-value">9.9</span> <span
+                                                            class="price-duration">三天</span></div>
+                                                    <div class="price price-hide price-hidden justify-content-start">
+                                                        <span class="price-currency">￥</span><span
+                                                            class="price-value">39.9</span> <span
+                                                            class="price-duration">月</span></div>
+                                                </div><!--/.prices -->
+                                                <h4 class="card-title mt-2">高级会员</h4>
+                                                <ul class="icon-list bullet-soft-primary mt-7 mb-8">
+                                                    <li><i class="uil uil-check fs-21"></i><span><strong>20条</strong>
+                                                            在线存储记录 </span></li>
+                                                    <li><i class="uil uil-check fs-21"></i><span><strong>26套</strong>
+                                                            VIP页面模块 </span></li>
+                                                    <li><i class="uil uil-check fs-21"></i><span><strong>x套</strong>
+                                                            VIP页面模板 </span></li>
+                                                    <li><i class="uil uil-check fs-21"></i><span><strong>20张</strong>
+                                                            图片上传 </span></li>
+                                                </ul><a href="#" class="btn btn-primary rounded-pill">购买会员</a>
+                                            </div><!--/.card-body -->
+                                        </div><!--/.pricing -->
+                                    </div><!--/column -->
+                                    <div class="col-md-6 popular">
+                                        <div class="pricing card shadow-lg">
+                                            <div class="card-body pb-12">
+                                                <div class="prices text-dark">
+                                                    <div class="price price-show justify-content-start"><span
+                                                            class="price-currency">￥</span><span
+                                                            class="price-value">99</span> <span
+                                                            class="price-duration">三天起</span></div>
+                                                    <div class="price price-hide price-hidden justify-content-start">
+                                                        <span class="price-currency">￥</span><span
+                                                            class="price-value">499</span> <span
+                                                            class="price-duration">月起</span></div>
+                                                </div><!--/.prices -->
+                                                <h4 class="card-title mt-2">定制会员</h4>
+                                                <ul class="icon-list bullet-soft-primary mt-7 mb-8">
+                                                    <li><i class="uil uil-check fs-21"></i><span><strong>20条</strong>
+                                                            在线存储记录 </span></li>
+                                                    <li><i class="uil uil-check fs-21"></i><span><strong>26套</strong>
+                                                            VIP页面模块 </span></li>
+                                                    <li><i class="uil uil-check fs-21"></i><span><strong>x套</strong>
+                                                            VIP页面模板 </span></li>
+                                                    <li><i class="uil uil-check fs-21"></i><span><strong>20张</strong>
+                                                            图片上传 </span></li>
+                                                </ul><a href="#" class="btn btn-primary rounded-pill">购买会员</a>
+                                            </div><!--/.card-body -->
+                                        </div><!--/.pricing -->
+                                    </div><!--/column -->
+                                </div><!--/.row -->
+                            </div><!--/column -->
+                        </div><!--/.row -->
+                        <div class="row gx-lg-8 gx-xl-12 gy-10 mb-10 mb-md-14 align-items-center">
+                            <div class="col-lg-7">
+                                <figure><img src="{{ MEDIA_URL }}images/home_page/i5.png" alt="" class="w-auto" /></figure>
+                            </div><!--/column -->
+                            <div class="col-lg-5">
+                                <h2 class="fs-16 text-uppercase text-muted mb-3">联系我们</h2>
+                                <h3 class="display-4 mb-3">使用过程中如遇到问题请与我们联系，感谢支持！</h3>
+                                <p>欢迎给我们留言，感谢大家长期以来的支持和帮助！</p><a href="https://htmlpage.cn/contact"
+                                    class="btn btn-primary rounded-pill mt-2">留言</a>
+                            </div><!--/column -->
+                        </div><!--/.row -->
+                        <div class="px-lg-5">
+                            <div class="row gx-0 gx-md-8 gx-xl-12 gy-8 align-items-center">
+                                <div class="col-4 col-md-2">
+                                    <figure class="px-5 px-md-0 px-lg-2 px-xl-3 px-xxl-4"><img src="{{ MEDIA_URL }}images/home_page/c1.png"
+                                            alt="" /></figure>
+                                </div><!--/column -->
+                                <div class="col-4 col-md-2">
+                                    <figure class="px-5 px-md-0 px-lg-2 px-xl-3 px-xxl-4"><img src="{{ MEDIA_URL }}images/home_page/c2.png"
+                                            alt="" /></figure>
+                                </div><!--/column -->
+                                <div class="col-4 col-md-2">
+                                    <figure class="px-5 px-md-0 px-lg-2 px-xl-3 px-xxl-4"><img src="{{ MEDIA_URL }}images/home_page/c3.png"
+                                            alt="" /></figure>
+                                </div><!--/column -->
+                                <div class="col-4 col-md-2">
+                                    <figure class="px-5 px-md-0 px-lg-2 px-xl-3 px-xxl-4"><img src="{{ MEDIA_URL }}images/home_page/c4.png"
+                                            alt="" /></figure>
+                                </div><!--/column -->
+                                <div class="col-4 col-md-2">
+                                    <figure class="px-5 px-md-0 px-lg-2 px-xl-3 px-xxl-4"><img src="{{ MEDIA_URL }}images/home_page/c5.png"
+                                            alt="" /></figure>
+                                </div><!--/column -->
+                                <div class="col-4 col-md-2">
+                                    <figure class="px-5 px-md-0 px-lg-2 px-xl-3 px-xxl-4"><img src="{{ MEDIA_URL }}images/home_page/c6.png"
+                                            alt="" /></figure>
+                                </div><!--/column -->
+                            </div><!--/.row -->
+                        </div><!-- /div -->
+                    </div><!-- /.container -->
+                </section><!-- /section -->
+            </div><!-- /.content-wrapper -->
+            <footer class="bg-navy text-inverse">
+                <div class="container pt-15 pt-md-17 pb-13 pb-md-15">
+                    <div class="d-lg-flex flex-row align-items-lg-center">
+                        <h3 class="display-4 mb-6 mb-lg-0 pe-lg-20 pe-xl-22 pe-xxl-25 text-white">如遇到问题请与我们联系，感谢支持！</h3>
+                        <a href="https://htmlpage.cn/contact"
+                            class="btn btn-primary rounded-pill mb-0 text-nowrap">我要留言</a>
+                    </div><!--/div -->
+                    <hr class="mt-11 mb-12" />
+                    <div class="row gy-6 gy-lg-0">
+                        <div class="col-md-4 col-lg-3">
+                            <div class="widget"><img src="{{ MEDIA_URL }}images/home_page/logo-small-white.svg" alt="" class="mb-4" />
+                                <p class="mb-4">© 2024 Lapus. <br class="d-none d-lg-block" />All rights reserved.</p>
+                                <nav class="nav social social-white"><a href="#"><i class="uil uil-twitter"></i></a><a
+                                        href="#"><i class="uil uil-facebook-f"></i></a><a href="#"><i
+                                            class="uil uil-dribbble"></i></a><a href="#"><i
+                                            class="uil uil-instagram"></i></a><a href="#"><i
+                                            class="uil uil-youtube"></i></a></nav><!-- /.social -->
+                            </div><!-- /.widget -->
+                        </div><!-- /column -->
+                        <div class="col-md-4 col-lg-3">
+                            <div class="widget">
+                                <h4 class="widget-title text-white mb-3">联系我们</h4>
+                                <address class="pe-xl-15 pe-xxl-17">中国·福建·厦门</address><a
+                                    href="mailto:#">help@lapus.cn</a><br /> 13799264013
+                            </div><!-- /.widget -->
+                        </div><!-- /column -->
+                        <div class="col-md-4 col-lg-3">
+                            <div class="widget">
+                                <h4 class="widget-title text-white mb-3">了解更多</h4>
+                                <ul class="list-unstyled mb-0">
+                                    <li><a href="#">关于我们</a></li>
+                                    <li><a href="#">解决方案</a></li>
+                                    <li><a href="#">项目案例</a></li>
+                                    <li><a href="#">隐私条款</a></li>
+                                    <li><a href="#">相关法规</a></li>
+                                </ul>
+                            </div><!-- /.widget -->
+                        </div><!-- /column -->
+                        <div class="col-md-12 col-lg-3">
+                            <div class="widget">
+                                <h4 class="widget-title text-white mb-3">电子邮件</h4>
+                                <p class="mb-5">您可以发送邮件到：<a href="mail:help@lapus.cn"
+                                        class="hover">help@lapus.cn</a>联系我们！</p><!-- /.newsletter-wrapper -->
+                            </div><!-- /.widget -->
+                        </div><!-- /column -->
+                    </div><!--/.row -->
+                </div><!-- /.container -->
+            </footer>
+            <script src="js/plugins.js"></script>
+            <script src="js/theme.js"></script>
+        </div>
+    </div>
+</body>
+
+</html>
