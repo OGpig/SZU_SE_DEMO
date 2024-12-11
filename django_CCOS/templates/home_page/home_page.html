@@ -1,11 +1,17 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en" dir="ltr">
 
 <head>
-    <meta charset='utf-8'>
-    <title>我的网页 - htmlpage.cn</title>
+    <meta charset="utf-8">
+    <title>特色时令产品集市系统</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="shortcut icon" href="{{ MEDIA_URL }}images/home_page/favicon.png" />
+    <link rel="stylesheet" href="{% static 'css/css_home_page/plugins.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/css_home_page/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/css_home_page/yellow.css' %}" />
+    <link rel="preload" href="{% static 'css/css_home_page/thicccboi.css' %}" as="style" />
 </head>
 
 <body>
@@ -114,12 +120,6 @@
                 color: rgb(217, 131, 166);
             }
 
-            .nav-link.dropdown-item.dropdown-toggle {
-                text-align: center;
-                align-self: auto;
-                width: 90px;
-            }
-
             .navbar-other.w-100.d-flex.ms-auto {
                 padding: 0px 0px 0px 0;
             }
@@ -172,8 +172,8 @@
             .c63313 {
                 width: 75px;
                 float: left;
-                text-align: center;
-                padding: 24px 0px 0px 0px;
+                text-align: left;
+                padding: 24px 0px 20px 0px;
                 margin: 0px 0px 0px 31px;
                 font-weight: 900;
             }
@@ -183,213 +183,115 @@
             }
         </style>
         <div>
-            <link rel="preload" href="{% static 'css/css_home_page/fonts/Unicons.woff2' %}" as="font" type="font/woff2" crossorigin="" />
-            <nav id="sticky-navbar"
-                class="navbar navbar-expand-lg center-nav transparent navbar-light navbar-clone fixed">
-                <div class="container flex-lg-row flex-nowrap align-items-center">
-                    <div class="navbar-brand w-100"><a href="./home_page.html"><img src="{{ MEDIA_URL }}images/home_page/logo-small-svg.svg"
-                                alt="" /></a></div>
-                    <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
-                        <div class="offcanvas-header d-lg-none">
-                            <h3 class="text-white fs-30 mb-0">Lapus</h3><button type="button"
-                                data-bs-dismiss="offcanvas" aria-label="Close"
-                                class="btn-close btn-close-white">Send</button>
-                        </div>
-                        <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
-                            <ul class="navbar-nav">
-                                <li class="nav-item"><a href="https://www.bilibili.com" class="nav-link">首页</a></li>
-                                <li class="nav-item dropdown"><a href="#" data-bs-toggle="dropdown"
-                                        class="nav-link dropdown-toggle">交流大厅</a>
-                                    <ul class="dropdown-menu">
-                                        <li class="dropdown dropdown-submenu dropend"><a href="#"
-                                                data-bs-toggle="dropdown" class="dropdown-item dropdown-toggle">赛事资源</a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item"><a href="./home_page.html"
-                                                        class="dropdown-item">赛事链接</a></li>
-                                                <li class="nav-item"><a href="./home_page.html"
-                                                        class="dropdown-item">赛事课程</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown dropdown-submenu dropend"><a href="#"
-                                                data-bs-toggle="dropdown" class="dropdown-item dropdown-toggle">用户交流</a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item"><a href="./home_page.html"
-                                                        class="dropdown-item">题目解析</a></li>
-                                                <li class="nav-item"><a href="./home_page.html"
-                                                        class="dropdown-item">经验分享</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="nav-item"><a href="./home_page.html" class="dropdown-item">组队招募</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown"><a href="#" data-bs-toggle="dropdown"
-                                        class="nav-link dropdown-toggle">赛事回顾</a>
-                                    <div class="dropdown-menu dropdown-lg">
-                                        <div class="dropdown-lg-content">
-                                            <div>
-                                                <h6 class="dropdown-header">1竞赛</h6>
-                                                <ul class="list-unstyled">
-                                                    <li><a href="./home_page.html" class="dropdown-item">3竞赛</a></li>
-                                                    <li><a href="./home_page.html" class="dropdown-item">5竞赛</a></li>
-                                                </ul>
-                                            </div><!-- /.column -->
-                                            <div>
-                                                <h6 class="dropdown-header">2竞赛</h6>
-                                                <ul class="list-unstyled">
-                                                    <li><a href="./home_page.html" class="dropdown-item">4竞赛</a>
-                                                    </li>
-                                                    <li><a href="./home_page.html" class="dropdown-item">6竞赛</a>
-                                                    </li>
-                                                </ul>
-                                            </div><!-- /.column -->
-                                        </div><!-- /auto-column -->
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown"><a href="#" data-bs-toggle="dropdown"
-                                        class="nav-link dropdown-toggle">联系我们</a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item"><a href="./home_page.html" class="dropdown-item">反馈通道</a></li>
-                                        <li class="nav-item"><a href="./home_page.html" class="dropdown-item">官方链接</a></li>
-                                        <li class="dropdown dropdown-submenu dropend"><a href="#"
-                                                data-bs-toggle="dropdown" class="dropdown-item dropdown-toggle">联系方式</a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item"><a href="./home_page.html"
-                                                        class="dropdown-item">联系电话</a></li>
-                                                <li class="nav-item"><a href="./home_page.html"
-                                                        class="dropdown-item">电子邮件</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul><!-- /.navbar-nav -->
-                            <div class="offcanvas-footer d-lg-none">
-                                <div><a href="mailto:first.last@email.com" class="link-inverse">help@lapus.cn</a><br />
-                                    13799264013 <br />
-                                    <nav class="nav social social-white mt-4"><a href="#"><i
-                                                class="uil uil-twitter"></i></a><a href="#"><i
-                                                class="uil uil-facebook-f"></i></a><a href="#"><i
-                                                class="uil uil-dribbble"></i></a><a href="#"><i
-                                                class="uil uil-instagram"></i></a><a href="#"><i
-                                                class="uil uil-youtube"></i></a></nav><!-- /.social -->
-                                </div>
-                            </div><!-- /.offcanvas-footer -->
-                        </div><!-- /.offcanvas-body -->
-                    </div><!-- /.navbar-collapse -->
-                    <div class="navbar-other w-100 d-flex ms-auto"><input type="text" id="iu7iriq-2"
-                            class="c24306" /><span class="c63313"><span id="isrt0zb" class="c63593"><b
-                                    id="i5q43p6">登录</b></span></span>
-                        <ul class="navbar-nav flex-row align-items-center ms-auto">
-                            <li class="nav-item dropdown language-select text-uppercase">
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a href="#" class="dropdown-item">英语</a></li>
-                                    <li class="nav-item"><a href="#" class="dropdown-item">德语</a></li>
-                                    <li class="nav-item"><a href="#" class="dropdown-item">法语</a></li>
-                                </ul>
-                            </li><a href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false" class="nav-link dropdown-item dropdown-toggle">中文</a>
-                            <li class="nav-item"><a data-bs-toggle="offcanvas" data-bs-target="#offcanvas-info"
-                                    class="nav-link"><i class="uil uil-info-circle"></i></a></li>
-                            <li class="nav-item d-lg-none"><button type="button"
-                                    class="hamburger offcanvas-nav-btn">Send</button></li>
-                        </ul><!-- /.navbar-nav -->
-                    </div><img
-                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3R5bGU9ImZpbGw6IHJnYmEoMCwwLDAsMC4xNSk7IHRyYW5zZm9ybTogc2NhbGUoMC43NSkiPgogICAgICAgIDxwYXRoIGQ9Ik04LjUgMTMuNWwyLjUgMyAzLjUtNC41IDQuNSA2SDVtMTYgMVY1YTIgMiAwIDAgMC0yLTJINWMtMS4xIDAtMiAuOS0yIDJ2MTRjMCAxLjEuOSAyIDIgMmgxNGMxLjEgMCAyLS45IDItMnoiPjwvcGF0aD4KICAgICAgPC9zdmc+"
-                        class="c17430" /><!-- /.navbar-other -->
-                </div><!-- /.container -->
-            </nav>
-            <link rel="shortcut icon" href="{{ MEDIA_URL }}images/home_page/favicon.png" />
-            <link rel="stylesheet" href="{% static 'css/css_home_page/plugins.css' %}" />
-            <link rel="stylesheet" href="{% static 'css/css_home_page/style.css' %}" />
-            <link rel="stylesheet" href="{% static 'css/css_home_page/yellow.css' %}" />
-            <link rel="preload" href="{% static 'css/css_home_page/thicccboi.css' %}" as="style" />
             <div class="content-wrapper">
                 <header class="wrapper bg-soft-primary">
                     <nav class="navbar navbar-expand-lg center-nav transparent navbar-light">
                         <div class="container flex-lg-row flex-nowrap align-items-center">
-                            <div class="navbar-brand w-100"><a href="./home_page.html"><img src="{{ MEDIA_URL }}images/home_page/logo-small-svg.svg"
+                            <div class="navbar-brand w-100"><a href="/home_page"><img src="{{ MEDIA_URL }}images/home_page/logo-small-svg.svg"
                                         alt="" /></a></div>
                             <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
-                                <div class="offcanvas-header d-lg-none">
-                                    <h3 class="text-white fs-30 mb-0">Lapus</h3><button type="button"
-                                        data-bs-dismiss="offcanvas" aria-label="Close"
-                                        class="btn-close btn-close-white">Send</button>
-                                </div>
                                 <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
                                     <ul class="navbar-nav">
-                                        <li class="nav-item"><a href="https://htmlpage.cn" class="nav-link">首页</a></li>
-                                        <li class="nav-item dropdown"><a href="#" data-bs-toggle="dropdown"
-                                                class="nav-link dropdown-toggle">交流社区</a>
+                                        <li class="nav-item"><a href="https://www.bilibili.com" class="nav-link">首页</a></li>
+                                        <li class="nav-item dropdown"><a href="/home_page" class="nav-link" data-bs-toggle="dropdown ">交流社区</a>
                                             <ul class="dropdown-menu">
-                                                <li class="dropdown dropdown-submenu dropend"><a href="#"
-                                                        data-bs-toggle="dropdown"
-                                                        class="dropdown-item dropdown-toggle">赛事资源</a>
+                                                <li class="dropdown dropdown-submenu dropend"><a href="/home_page" 
+                                                        data-bs-toggle="dropdown" 
+                                                        class="dropdown-item">赛事资源</a>
                                                     <ul class="dropdown-menu">
-                                                        <li class="nav-item"><a href="./services.html"
+                                                        <li class="nav-item"><a href="/dish"
                                                                 class="dropdown-item">赛事链接</a></li>
-                                                        <li class="nav-item"><a href="./services2.html"
+                                                        <li class="nav-item"><a href="/order"
                                                                 class="dropdown-item">赛事课程</a></li>
                                                     </ul>
                                                 </li>
-                                                <li class="dropdown dropdown-submenu dropend"><a href="#"
+                                                <li class="dropdown dropdown-submenu dropend"><a href="/surf_competition"
                                                         data-bs-toggle="dropdown"
-                                                        class="dropdown-item dropdown-toggle">用户交流</a>
+                                                        class="dropdown-item">用户交流</a>
                                                     <ul class="dropdown-menu">
-                                                        <li class="nav-item"><a href="./about.html"
+                                                        <li class="nav-item"><a href="/contactus"
                                                                 class="dropdown-item">题目解析</a></li>
-                                                        <li class="nav-item"><a href="./about2.html"
+                                                        <li class="nav-item"><a href="/shop"
                                                                 class="dropdown-item">经验分享</a></li>
                                                     </ul>
                                                 </li>
-                                                <li class="nav-item"><a href="./pricing.html"
+                                                <li class="nav-item"><a href="/home_page"
                                                         class="dropdown-item">组队招募</a></li>
                                             </ul>
                                         </li>
-                                        <li class="nav-item dropdown"><a href="#" data-bs-toggle="dropdown"
-                                                class="nav-link dropdown-toggle">赛事参与</a>
+                                        <li class="nav-item dropdown"><a href="/surf_competition" class="nav-link" data-bs-toggle="dropdown">赛事参与</a>
                                             <div class="dropdown-menu dropdown-lg">
                                                 <div class="dropdown-lg-content">
                                                     <div>
-                                                        <h6 class="dropdown-header">1竞赛</h6>
                                                         <ul class="list-unstyled">
-                                                            <li><a href="./projects.html" class="dropdown-item">3竞赛</a>
-                                                            </li>
-                                                            <li><a href="./projects2.html" class="dropdown-item">5竞赛</a>
-                                                            </li>
+                                                            <li><a href="/surf_competition" class="dropdown-item">1竞赛</a></li>
+                                                            <li><a href="/surf_competition" class="dropdown-item">3竞赛</a></li>
+                                                            <li><a href="/surf_competition" class="dropdown-item">5竞赛</a></li>
                                                         </ul>
                                                     </div><!-- /.column -->
                                                     <div>
-                                                        <h6 class="dropdown-header">2竞赛</h6>
                                                         <ul class="list-unstyled">
-                                                            <li><a href="./single-project.html"
-                                                                    class="dropdown-item">4竞赛</a></li>
-                                                            <li><a href="./single-project2.html"
-                                                                    class="dropdown-item">6竞赛</a></li>
+                                                            <li><a href="/surf_competition" class="dropdown-item">2竞赛</a></li>
+                                                            <li><a href="/surf_competition" class="dropdown-item">4竞赛</a></li>
+                                                            <li><a href="/surf_competition" class="dropdown-item">6竞赛</a></li>
                                                         </ul>
                                                     </div><!-- /.column -->
                                                 </div><!-- /auto-column -->
                                             </div>
                                         </li>
-                                        <li class="nav-item dropdown"><a href="#" data-bs-toggle="dropdown"
-                                                class="nav-link dropdown-toggle">联系我们</a>
+                                        
+                                        <li class="nav-item dropdown"><a href="/home_page" data-bs-toggle="dropdown"
+                                                class="nav-link">联系我们</a>
                                             <ul class="dropdown-menu">
-                                                <li class="nav-item"><a href="./blog.html"
+                                                <li class="nav-item"><a href="/contactus"
                                                         class="dropdown-item">反馈通道</a></li>
-                                                <li class="nav-item"><a href="./blog2.html"
+                                                <li class="nav-item"><a href="/home_page"
                                                         class="dropdown-item">官方链接</a></li>
-                                                <li class="dropdown dropdown-submenu dropend"><a href="#"
+                                                <li class="dropdown dropdown-submenu dropend"><a href="/home_page"
                                                         data-bs-toggle="dropdown"
-                                                        class="dropdown-item dropdown-toggle">联系方式</a>
+                                                        class="dropdown-item">联系方式</a>
                                                     <ul class="dropdown-menu">
-                                                        <li class="nav-item"><a href="./blog-post.html"
+                                                        <li class="nav-item"><a href="/home_page"
                                                                 class="dropdown-item">联系电话</a></li>
-                                                        <li class="nav-item"><a href="./blog-post2.html"
+                                                        <li class="nav-item"><a href="/home_page"
                                                                 class="dropdown-item">电子邮件</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>
                                         </li>
+
+                                        <a class="c14947"><b></b></a><input type="text" id="i7zkqwe-2" class="c24653" />
+                                        <span class="c63313"><span id="isrt0zb" class="c63593"><b id="i5q43p6">
+                                            <herf><a href="https://www.bilibili.com" role="button"> 搜索</a></herf></b></span></span>
+                                        
+
+                                        <li class="nav-item dropdown"><a href="/home_page" data-bs-toggle="dropdown" class="nav-link">中文</a>
+                                            <ul class="dropdown-menu">
+                                                <li class="nav-item"><a href="#" class="dropdown-item">中文</a></li>
+                                                <li class="nav-item"><a href="#" class="dropdown-item">英语</a></li>
+                                                <li class="nav-item"><a href="#" class="dropdown-item">法语</a></li>
+                                            </ul>
+                                        </li>
+                                        
+
+                                        <div class="navbar-nav ml-auto">
+                                            {% if request.session.is_login %}
+                                            <a class="nav-item nav-link" href="#" class="nav-item nav-link">当前在线：{{ request.session.user_name }}</a>
+                                            <a class="nav-item nav-link" href="/customer/logout/" class="nav-item nav-link">登出</a>
+                                            {% else %}
+                                            <a class="nav-item nav-link" href="/admin/" class="nav-item nav-link">管理员登录</a>
+                                            <a class="nav-item nav-link" href="/customer/login/" class="nav-item nav-link">顾客登录</a>
+                                            <a class="nav-item nav-link" href="/customer/register/" class="btn btn-simple">顾客注册</a>
+                                            {% endif %}
+                                            <a class="nav-item nav-link" href="/customer/info" class="btn btn-simple">个人中心</a>
+                                            <li class="nav-item"><a data-bs-toggle="offcanvas" data-bs-target="#offcanvas-info" class="nav-link"><i
+                                                        class="uil uil-info-circle"></i>关于我们</a></li>
+                                        </div><!-- /.navbar-nav -->
+
+
+                                        
                                     </ul><!-- /.navbar-nav -->
+
                                     <div class="offcanvas-footer d-lg-none">
                                         <div><a href="mailto:first.last@email.com"
                                                 class="link-inverse">help@lapus.cn</a><br /> 13799264013 <br />
@@ -401,28 +303,15 @@
                                                         class="uil uil-youtube"></i></a></nav><!-- /.social -->
                                         </div>
                                     </div><!-- /.offcanvas-footer -->
+
+                                   
+                                    
+
+
                                 </div><!-- /.offcanvas-body -->
                             </div><!-- /.navbar-collapse -->
-                            <ul class="dropdown-menu">
-                                <li class="nav-item"><a href="#" class="dropdown-item">英语</a></li>
-                                <li class="nav-item"><a href="#" class="dropdown-item">德语</a></li>
-                                <li class="nav-item"><a href="#" class="dropdown-item">法语</a></li>
-                            </ul>
-                            <div class="navbar-other w-100 d-flex ms-auto"><a class="c14947"><b></b></a><input
-                                    type="text" id="i7zkqwe-2" class="c24653" />
-                                <ul class="navbar-nav flex-row align-items-center ms-auto">
-                                    <li class="nav-item dropdown language-select text-uppercase"></li><span
-                                        id="i2ghvrx">登录</span><a href="#" role="button" data-bs-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false"
-                                        class="nav-link dropdown-item dropdown-toggle">中文</a>
-                                    <li class="nav-item"><a data-bs-toggle="offcanvas" data-bs-target="#offcanvas-info"
-                                            class="nav-link"><i class="uil uil-info-circle"></i></a></li>
-                                    <li class="nav-item d-lg-none"><button type="button"
-                                            class="hamburger offcanvas-nav-btn">Send</button></li>
-                                </ul><!-- /.navbar-nav -->
-                            </div><img
-                                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3R5bGU9ImZpbGw6IHJnYmEoMCwwLDAsMC4xNSk7IHRyYW5zZm9ybTogc2NhbGUoMC43NSkiPgogICAgICAgIDxwYXRoIGQ9Ik04LjUgMTMuNWwyLjUgMyAzLjUtNC41IDQuNSA2SDVtMTYgMVY1YTIgMiAwIDAgMC0yLTJINWMtMS4xIDAtMiAuOS0yIDJ2MTRjMCAxLjEuOSAyIDIgMmgxNGMxLjEgMCAyLS45IDItMnoiPjwvcGF0aD4KICAgICAgPC9zdmc+"
-                                class="c17302" /><!-- /.navbar-other -->
+                            
+                            
                         </div><!-- /.container -->
                     </nav><!-- /.navbar -->
                     <div id="offcanvas-info" data-bs-scroll="true" class="offcanvas offcanvas-end text-inverse">

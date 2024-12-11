@@ -26,14 +26,13 @@ def submit_contact_form(request):
         competitionform = request.POST.get('competitionform')
         feedbackform = request.POST.get('feedbackform')
         volunteerapplicationform = request.POST.get('volunteerapplicationform')
-        # 检查 contactus_id 是否为 10 位整数
         try:
             contactus_id = int(contactus_id)  # 转换为整数
             if len(str(contactus_id)) != 10:
                 return JsonResponse({"message": "填表编号必须是 10 位整数"}, status=400)
         except ValueError:
             return JsonResponse({"message": "填表编号必须是有效的整数"}, status=400)
-        
+
         # 解析日期字段，确保日期格式为 'YYYY-MM-DD'
         try:
             date = datetime.strptime(date_str, '%Y-%m-%d').date()  # 转换为 date 对象

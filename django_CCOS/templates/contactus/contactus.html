@@ -121,6 +121,7 @@ $(function() {
               {% csrf_token %}
               <div>
                 <input type="int" placeholder="填表编号（格式：年月日时，例如2025010112）" maxlength="20" name="contactus_id" style="height: 50px; width: 1200px;" id="contactus_id">
+                <input type="int" placeholder="填表编号（年月日时）" maxlength="20" name="contactus_id">
               </div>
               <div>
                 <input type="text" placeholder="竞赛咨询表单填写处（具体内容,若没有请填写无）" name="competitionform">
@@ -142,6 +143,10 @@ $(function() {
               </div>
               <div>
                 <input type="varchar" placeholder="邮箱" maxlength="200" name="email" style="height: 50px; width: 300px;">
+                <input type="varchar" placeholder="填表日期" name="date" maxlength="10" onblur="filterTel()">
+              </div>
+              <div>
+                <input type="varchar" placeholder="邮箱" maxlength="200" name="email" onblur="filterEmail()">
               </div>
               <div>
                 <button class="submitBtn" onclick="apply()" id="sub">提交信息</button>
@@ -179,6 +184,63 @@ function apply() {
     });
 }
 
+function checkform() {
+  filterTxt();
+  filterTel();
+  filterEmail();
+  if(filterTel() && filterEmail() && filterTxt()) {
+      return true;  
+  }else{
+      return false;
+  }
+}
+
+function filterTxt(){
+  $('input[name="contactus_id"],textarea[name="competitionform"],input[name="cooperationform"],input[name="sponsorshipform"],input[name="feedbackform"],input[name="volunteerapplicationform"]').each(function(){
+    if($(this).val() == ''){
+      $(this).addClass("error");
+    }else{
+      $(this).removeClass("error");
+    }
+  });
+  if(contactus_id.val()!='' && competitionform.val()!='' && cooperationform.val()!='' && sponsorshipform.val()!='' && feedbackform.val()!='' && volunteerapplicationform.val()!=''){
+    return true;
+  }else{
+    return false;
+  }
+}
+
+$('input[name="contactus_id"],textarea[name="competitionform"],input[name="cooperationform"],input[name="sponsorshipform"],input[name="feedbackform"],input[name="volunteerapplicationform"]').blur(function(){
+    if($(this).val() == ''){
+      $(this).addClass("error");
+    }else{
+      $(this).removeClass("error");
+    }
+  });
+
+//校验手机号
+function filterTel() {
+  var p = /^1\d{10}$/;
+  if(!p.test(date.val())){
+    date.addClass("error");
+    return false;
+  }else{
+    date.removeClass("error");
+    return true;
+  }
+}
+
+//校验邮箱
+function filterEmail() {
+  var mail = /^[A-Za-z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+  if(!mail.test(email.val())) {
+    email.addClass("error");
+    return false;
+  }else{
+    email.removeClass("error");
+    return true;
+  }
+}
 </script>
         </div>
       </div>
