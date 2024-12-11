@@ -120,6 +120,7 @@ $(function() {
             <form method="post" action="" id="formtest">
               {% csrf_token %}
               <div>
+                <input type="int" placeholder="填表编号（格式：年月日时，例如2025010112）" maxlength="20" name="contactus_id" style="height: 50px; width: 1200px;" id="contactus_id">
                 <input type="int" placeholder="填表编号（年月日时）" maxlength="20" name="contactus_id">
               </div>
               <div>
@@ -138,6 +139,10 @@ $(function() {
                 <input type="text" placeholder="志愿者申请表单填写处（具体内容，若没有请填写无）" name="volunteerapplicationform">
               </div>
               <div>
+                <input type="varchar" placeholder="填表日期" name="date" maxlength="10" style="height: 50px; width: 300px;">
+              </div>
+              <div>
+                <input type="varchar" placeholder="邮箱" maxlength="200" name="email" style="height: 50px; width: 300px;">
                 <input type="varchar" placeholder="填表日期" name="date" maxlength="10" onblur="filterTel()">
               </div>
               <div>
@@ -159,13 +164,17 @@ var date =  $('input[name="date"]');
 var email =  $('input[name="email"]');
 
 function apply() {
-    const formData = new FormData(document.getElementById('formtest'));
     
+
+    // 创建 FormData 对象
+    const formData = new FormData(document.getElementById('formtest'));
+
+    // 发起 fetch 请求
     fetch('/contactus/submitContactForm/', {
         method: 'POST',
         body: formData
     })
-    .then(response => response.json())
+    .then(response => response.json()) // 处理服务器响应
     .then(data => {
         alert(data.message);  // 显示提交成功的消息
     })
