@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'dish',
     'surf_competition',
     'contactus',
-    'home_page'
+    'home_page',
+    'partic'
     # 'order',
 ]
 
@@ -90,11 +91,11 @@ WSGI_APPLICATION = 'django_CCOS.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dj',  # 连接的数据库
+        'NAME': 'lgj2022',  # 连接的数据库
         'HOST': '127.0.0.1',    # mysql的ip地址
         'PORT': 3306,           # mysql的端口
         'USER': 'root',         # mysql的用户名
-        'PASSWORD': 'zhangyi2022152034'    # mysql的密码
+        'PASSWORD': ''    # mysql的密码
     }
 }
 

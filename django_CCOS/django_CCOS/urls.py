@@ -35,7 +35,8 @@ urlpatterns = [
     path('', include('dish.urls')),
     path('surf_competition/', include('surf_competition.urls')),
     path('contactus/', include('contactus.urls')),
-    path('', include('home_page.urls'))
+    path('', include('home_page.urls')),
+    path('', include('partic.urls'))
 ]
 
 # 把 media 路径也添加上
