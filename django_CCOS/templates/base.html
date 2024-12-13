@@ -188,11 +188,25 @@
                     <nav class="navbar navbar-expand-lg center-nav transparent navbar-light">
                         <div class="container flex-lg-row flex-nowrap align-items-center">
                             <div class="navbar-brand w-100"><a href="/"><img
-                                        src="{{ MEDIA_URL }}images/home_page/logo-small-svg.svg" alt="" /></a></div>
+                                        src="{{ MEDIA_URL }}images/home_page/szu.png" alt="" /></a></div>
+                                     
+                                        
+                            <div class="competitionSearch el-input el-input--medium el-input-group el-input-group--append el-input--suffix">
+                                <input type="text" id="searchInput" autocomplete="off" placeholder="搜索竞赛名称" maxlength="20" class="el-input__inner">
+                                <div class="el-input-group__append">
+                                    <button type="button" id="searchButton" class="el-button el-button--default el-button--small">
+                                        <i class="el-icon-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            
+
+
                             <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
                                 <div class="offcanvas-body ms-lg-auto d-flex flex-column h-100">
                                     <ul class="navbar-nav">
-                                        <li class="nav-item"><a href="https://www.bilibili.com" class="nav-link">首页</a>
+                                        <li class="nav-item"><a href="/partic" class="nav-link">赛事参与</a>
                                         </li>
                                         <li class="nav-item dropdown"><a href="/" class="nav-link"
                                                 data-bs-toggle="dropdown ">交流社区</a>
@@ -200,9 +214,9 @@
                                                 <li class="dropdown dropdown-submenu dropend"><a href="/"
                                                         data-bs-toggle="dropdown" class="dropdown-item">赛事资源</a>
                                                     <ul class="dropdown-menu">
-                                                        <li class="nav-item"><a href="/dish"
+                                                        <li class="nav-item"><a href="/"
                                                                 class="dropdown-item">赛事链接</a></li>
-                                                        <li class="nav-item"><a href="/order"
+                                                        <li class="nav-item"><a href="/"
                                                                 class="dropdown-item">赛事课程</a></li>
                                                     </ul>
                                                 </li>
@@ -221,7 +235,7 @@
                                             </ul>
                                         </li>
                                         <li class="nav-item dropdown"><a href="/surf_competition" class="nav-link"
-                                                data-bs-toggle="dropdown">赛事参与</a>
+                                                data-bs-toggle="dropdown">赛事浏览</a>
                                             <div class="dropdown-menu dropdown-lg">
                                                 <div class="dropdown-lg-content">
                                                     <div>
@@ -267,11 +281,8 @@
                                             </ul>
                                         </li>
 
-                                        <a class="c14947"><b></b></a><input type="text" id="i7zkqwe-2" class="c24653" />
-                                        <span class="c63313"><span id="isrt0zb" class="c63593"><b id="i5q43p6">
-                                                    <herf><a href="https://www.bilibili.com" role="button"> 搜索</a>
-                                                    </herf>
-                                                </b></span></span>
+                                        
+
 
 
                                         <li class="nav-item dropdown"><a href="/" data-bs-toggle="dropdown"
@@ -286,22 +297,23 @@
 
                                         <div class="navbar-nav ml-auto">
                                             {% if request.session.is_login %}
-                                            <a class="nav-item nav-link" href="#"
-                                                class="nav-item nav-link">当前在线：{{request.session.user_name }}</a>
-                                            <a class="nav-item nav-link" href="/customer/logout/"
-                                                class="nav-item nav-link">登出</a>
+                                            <a class="nav-item nav-link" href="#" class="nav-item nav-link">当前在线：{{request.session.user_name }}</a>
+                                            <a class="nav-item nav-link" href="/customer/logout/" class="nav-item nav-link">登出</a>
                                             {% else %}
-                                            <a class="nav-item nav-link" href="/admin/"
-                                                class="nav-item nav-link">管理员登录</a>
-                                            <a class="nav-item nav-link" href="/customer/login/"
-                                                class="nav-item nav-link">顾客登录</a>
-                                            <a class="nav-item nav-link" href="/customer/register/"
-                                                class="btn btn-simple">顾客注册</a>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                                                    aria-expanded="false">
+                                                    登录
+                                                </a>
+                                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                                    <li><a class="dropdown-item" href="/admin/">管理员登录</a></li>
+                                                    <li><a class="dropdown-item" href="/customer/login/">顾客登录</a></li>
+                                                    <li><a class="dropdown-item" href="/customer/register/">顾客注册</a></li>
+                                                </ul>
+                                            </li>
                                             {% endif %}
-                                            <a class="nav-item nav-link" href="/customer/info"
-                                                class="btn btn-simple">个人中心</a>
-                                            <li class="nav-item"><a data-bs-toggle="offcanvas"
-                                                    data-bs-target="#offcanvas-info" class="nav-link"><i
+                                            <a class="nav-item nav-link" href="/customer/info" class="btn btn-simple">个人中心</a>
+                                            <li class="nav-item"><a data-bs-toggle="offcanvas" data-bs-target="#offcanvas-info" class="nav-link"><i
                                                         class="uil"></i>关于我们</a></li>
                                         </div><!-- /.navbar-nav -->
 
@@ -991,6 +1003,17 @@
             </footer>
             <script src="js/plugins.js"></script>
             <script src="js/theme.js"></script>
+            <script>
+                document.getElementById('searchButton').addEventListener('click', function () {
+                    const searchQuery = document.getElementById('searchInput').value;
+                    if (searchQuery) {
+                        // 跳转到目标页面并附加搜索参数
+                        window.location.href = `surf_competition/?search=${encodeURIComponent(searchQuery)}`;
+                    }
+                    else
+                        window.location.href = `surf_competition/`;
+                });
+            </script>
         </div>
     </div>
 </body>

@@ -29,7 +29,7 @@
             <section data-v-f7d88a7c="" class="header fixed-header">
                 <div data-v-f7d88a7c="" class="container">
                     <div class="logo"><a href="/"><img
-                                src="{{ MEDIA_URL }}images/surf_competition/216f3a8e4bc1767ccf7a92198ac46ff6.png"
+                                src="{{ MEDIA_URL }}images/home_page/szu_origin.png" 
                                 class="user-avatar"></a></div>
                     <div class="menu">
                         <ul>
@@ -43,14 +43,19 @@
                 <div data-v-622dd1b6="" class="hasBg"><!---->
                     <div class="container">
                         <div class="competitionSort">
-                            <div
-                                class="competitionSearch el-input el-input--medium el-input-group el-input-group--append el-input--suffix">
-                                <!----><input type="text" autocomplete="off" placeholder="搜索竞赛名称" maxlength="20"
-                                    class="el-input__inner"><!----><!---->
-                                <div class="el-input-group__append"><button type="button"
-                                        class="el-button el-button--default el-button--small"><!----><i
-                                            class="el-icon-search"></i><!----></button></div><!---->
+
+                            <div class="competitionSearch el-input el-input--medium el-input-group el-input-group--append el-input--suffix">
+                                <input type="text" id="searchInputPage2" autocomplete="off" placeholder="搜索竞赛名称" maxlength="20"
+                                    class="el-input__inner">
+                                <div class="el-input-group__append">
+                                    <button type="button" class="el-button el-button--default el-button--small">
+                                        <i class="el-icon-search"></i>
+                                    </button>
+                                </div>
                             </div>
+                            
+                            
+
                             <dl>
                                 <dt>状态：</dt>
                                 <dd>
@@ -246,6 +251,15 @@
                 }
             });
         });
+    </script>
+    <script>
+        // 获取URL中的search参数
+        const params = new URLSearchParams(window.location.search);
+        const searchQuery = params.get('search');
+        if (searchQuery) {
+            // 自动填入搜索框
+            document.getElementById('searchInputPage2').value = decodeURIComponent(searchQuery);
+        }
     </script>
 </body>
 

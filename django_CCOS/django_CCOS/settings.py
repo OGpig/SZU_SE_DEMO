@@ -40,13 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap4',
-    'canteen',
     'customer',
-    'dish',
     'surf_competition',
     'contactus',
     'home_page',
-    'partic'
+    'partic',
     # 'order',
 ]
 

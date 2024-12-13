@@ -46,9 +46,6 @@ def register(request):
 
 def login(request):
     login_form = LoginForm()
-    if request.session.get('is_login', None):
-        print("[DEBUG][POST][STATE]:已经登陆")
-        return render(request, 'customer/index.html', locals())
 
     if request.method == "POST":
         login_form = LoginForm(request.POST)
@@ -72,7 +69,7 @@ def login(request):
                     request.session['user_id'] = user_cus.customer_id
                     request.session['user_name'] = user_cus.customer_name
                     request.session['tel'] = user_cus.customer_tel
-                    return render(request, 'customer/index.html', locals())
+                    return redirect("/")
                 else:
                     print("[DEBUG][POST][STATE]:密码不正确")
                     message = "密码不正确"
@@ -83,9 +80,6 @@ def login(request):
 
 
 def logout(request):
-    if not request.session.get('is_login', None):
-        # 如果本来就未登录，也就没有登出一说
-        return render(request, 'customer/index.html', locals())
     user_id = request.session['user_id']
     print("[DEBUG][REQUEST][退出]]")
     print("[DEBUG][REQUEST][USER_ID]:{}".format(user_id))
@@ -98,7 +92,7 @@ def logout(request):
         print("[DEBUG][request][STATE]:退出错误，无法更新数据库中用户状态")
 
     request.session.flush()
-    return render(request, 'customer/index.html', locals())
+    return redirect("/")
 
 
 def information(request):
