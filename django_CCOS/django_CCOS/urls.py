@@ -29,13 +29,13 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
+    path('', include('home_page.urls')),
     path('admin/', admin.site.urls),
-    path('', include('canteen.urls')),
     path('customer/', include('customer.urls')),
-    path('', include('dish.urls')),
+
     path('surf_competition/', include('surf_competition.urls')),
     path('contactus/', include('contactus.urls')),
-    path('', include('home_page.urls')),
+
     path('', include('partic.urls'))
 ]
 
