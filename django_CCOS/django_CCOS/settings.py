@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'contactus',
     'home_page',
     'partic',
+    'teacher_information',
     # 'order',
 ]
 

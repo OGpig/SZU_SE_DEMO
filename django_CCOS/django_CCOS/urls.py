@@ -30,12 +30,13 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('', include('home_page.urls')),
+    
     path('admin/', admin.site.urls),
     path('customer/', include('customer.urls')),
 
     path('surf_competition/', include('surf_competition.urls')),
     path('contactus/', include('contactus.urls')),
-
+    path('teacher_information/', include('teacher_information.urls')),
     path('', include('partic.urls'))
 ]
 
