@@ -1,0 +1,51 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1237171",
+      "name": "加号",
+      "font_class": "plus",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "1788675",
+      "name": "管理员",
+      "font_class": "guanliyuan",
+      "unicode": "e696",
+      "unicode_decimal": 59030
+    },
+    {
+      "icon_id": "2815703",
+      "name": "编辑",
+      "font_class": "bianji",
+      "unicode": "e543",
+      "unicode_decimal": 58691
+    },
+    {
+      "icon_id": "3930502",
+      "name": "老师",
+      "font_class": "laoshi",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "4305650",
+      "name": "我的学生",
+      "font_class": "wodexuesheng",
+      "unicode": "e67d",
+      "unicode_decimal": 59005
+    },
+    {
+      "icon_id": "11893493",
+      "name": "消息",
+      "font_class": "xiaoxi",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    }
+  ]
+}

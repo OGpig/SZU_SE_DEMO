@@ -13,7 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-
+from itertools import product
 
 from django.contrib import admin
 from django.urls import path
@@ -36,7 +36,8 @@ urlpatterns = [
     path('surf_competition/', include('surf_competition.urls')),
     path('contactus/', include('contactus.urls')),
     path('', include('home_page.urls')),
-    path('', include('partic.urls'))
+    path('', include('partic.urls')),
+    path('personal_center/', include('personal_center.urls')),
 ]
 
 # 把 media 路径也添加上

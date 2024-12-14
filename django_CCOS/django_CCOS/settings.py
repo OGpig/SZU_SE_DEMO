@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'surf_competition',
     'contactus',
     'home_page',
-    'partic'
+    'partic',
+    'personal_center'
     # 'order',
 ]
 
@@ -54,7 +55,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware', # 用于登录注册页面的 session 框架
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -92,10 +93,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'lgj2022',  # 连接的数据库
-        'HOST': '127.0.0.1',    # mysql的ip地址
+        # 'HOST': '127.0.0.1',    # mysql的ip地址
+        'HOST': '120.24.224.37',    # mysql的ip地址
         'PORT': 3306,           # mysql的端口
         'USER': 'root',         # mysql的用户名
-        'PASSWORD': ''    # mysql的密码
+        # 'PASSWORD': ''    # mysql的密码
+        'PASSWORD': 'ma..147qwe'    # mysql的密码
     }
 }
 
