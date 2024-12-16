@@ -38,6 +38,9 @@ urlpatterns = [
     path('contactus/', include('contactus.urls')),
     path('teacher_information/', include('teacher_information.urls')),
     path('', include('partic.urls'))
+
+    path('', include('partic.urls')),
+    path('personal_center/', include('personal_center.urls')),
 ]
 
 # 把 media 路径也添加上
