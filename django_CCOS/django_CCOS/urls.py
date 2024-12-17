@@ -37,7 +37,7 @@ urlpatterns = [
     path('surf_competition/', include('surf_competition.urls')),
     path('contactus/', include('contactus.urls')),
     path('teacher_information/', include('teacher_information.urls')),
-    path('', include('partic.urls'))
+    path('', include('partic.urls')),
 
     path('', include('partic.urls')),
     path('personal_center/', include('personal_center.urls')),
