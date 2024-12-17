@@ -32,10 +32,9 @@ urlpatterns = [
     path('', include('home_page.urls')),
     path('admin/', admin.site.urls),
     path('customer/', include('customer.urls')),
-
+    path('cc/', include('cc.urls')), 
     path('surf_competition/', include('surf_competition.urls')),
     path('contactus/', include('contactus.urls')),
-
     path('', include('partic.urls'))
 ]
 
