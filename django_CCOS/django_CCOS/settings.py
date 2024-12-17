@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'home_page',
     'partic',
     'teacher_information',
-    # 'order',
+    'cc',
     'personal_center'
 ]
 

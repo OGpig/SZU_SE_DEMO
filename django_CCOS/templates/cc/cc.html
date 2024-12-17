@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第一组深圳大学竞赛交流论坛</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f4f6f8;
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+
+    /* 导航栏样式 */
+    .navbar {
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-size: 24px;
+      font-weight: bold;
+      color: #3b82f6;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: #64748b;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.3s;
+    }
+
+    .nav-link:hover {
+      color: #3b82f6;
+    }
+
+    .nav-link.active {
+      color: #3b82f6;
+      font-weight: 500;
+    }
+
+    /* 主容器样式 */
+    .main-container {
+      max-width: 1200px;
+      margin: 80px auto 40px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 240px 1fr 300px;
+      gap: 24px;
+    }
+
+    /* 侧边栏样式 */
+    .sidebar {
+      position: sticky;
+      top: 100px;
+      height: fit-content;
+    }
+
+    .side-menu {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .menu-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #1e293b;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      padding: 10px 12px;
+      margin-bottom: 4px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .menu-item:hover {
+      background: #f8fafc;
+    }
+
+    .menu-item.active {
+      background: #eff6ff;
+      color: #3b82f6;
+    }
+
+    .menu-item-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 12px;
+      color: #64748b;
+    }
+
+    .menu-item.active .menu-item-icon {
+      color: #3b82f6;
+    }
+
+    /* 帖子列表样式 */
+    .post-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .post-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: transform 0.3s;
+    }
+
+    .post-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .post-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 12px;
+    }
+
+    .post-meta {
+      flex: 1;
+    }
+
+    .user-name {
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 2px;
+    }
+
+    .post-time {
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    .post-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 8px;
+    }
+
+    .post-content {
+      color: #475569;
+      margin-bottom: 16px;
+      font-size: 15px;
+    }
+
+    .post-footer {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .post-action {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #64748b;
+      font-size: 14px;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .post-action:hover {
+      color: #3b82f6;
+    }
+
+    .post-tags {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .tag {
+      padding: 4px 12px;
+      border-radius: 16px;
+      font-size: 13px;
+      background: #f1f5f9;
+      color: #64748b;
+    }
+
+    /* 右侧边栏样式 */
+    .right-sidebar {
+      position: sticky;
+      top: 100px;
+      height: fit-content;
+    }
+
+    .trending-card,
+    .recommend-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #1e293b;
+    }
+
+    .trending-item {
+      display: flex;
+      align-items: start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .trending-number {
+      font-size: 20px;
+      font-weight: 600;
+      color: #94a3b8;
+      min-width: 28px;
+    }
+
+    .trending-content h4 {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 4px;
+      color: #1e293b;
+    }
+
+    .trending-content p {
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    .recommend-user {
+      display: flex;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .recommend-user-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      margin-right: 12px;
+    }
+
+    .recommend-user-info {
+      flex: 1;
+    }
+
+    .recommend-user-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: #1e293b;
+      margin-bottom: 2px;
+    }
+
+    .recommend-user-bio {
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    .follow-btn {
+      padding: 6px 16px;
+      border-radius: 16px;
+      font-size: 13px;
+      background: #eff6ff;
+      color: #3b82f6;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .follow-btn:hover {
+      background: #3b82f6;
+      color: white;
+    }
+
+    .follow-btn.following {
+      background: #e2e8f0;
+      color: #64748b;
+    }
+
+    /* 发帖按钮 */
+    .create-post-btn {
+      position: fixed;
+      right: 40px;
+      bottom: 40px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      transition: all 0.3s;
+      z-index: 1000;
+    }
+
+    .create-post-btn:hover {
+      transform: scale(1.1);
+      background: #2563eb;
+    }
+
+    /* 评论区样式 */
+    .comments-section {
+      margin-top: 20px;
+    }
+
+    .comment {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .comment-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #ced4da;
+    }
+
+    .comment-content {
+      flex: 1;
+      background: #f1f5f9;
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .comment-user {
+      font-weight: 500;
+      color: #1e293b;
+      margin-bottom: 4px;
+    }
+
+    .comment-text {
+      font-size: 14px;
+      color: #475569;
+      margin-bottom: 8px;
+    }
+
+    .comment-actions {
+      display: flex;
+      gap: 12px;
+      font-size: 13px;
+      color: #64748b;
+      cursor: pointer;
+    }
+
+    .comment-actions:hover {
+      color: #3b82f6;
+    }
+
+    /* 评论输入框 */
+    .comment-input {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .comment-input img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #ced4da;
+    }
+
+    .comment-input textarea {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      resize: none;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .comment-input button {
+      padding: 10px 16px;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .comment-input button:hover {
+      background: #2563eb;
+    }
+
+    /* 发帖弹窗 */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 12px;
+      width: 600px;
+      max-width: 90vw;
+      padding: 24px;
+      position: relative;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .modal-title {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: #64748b;
+      cursor: pointer;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #1e293b;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: border-color 0.3s;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: #3b82f6;
+    }
+
+    .form-textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-cancel {
+      background: #f1f5f9;
+      border: none;
+      color: #64748b;
+    }
+
+    .btn-cancel:hover {
+      background: #e2e8f0;
+    }
+
+    .btn-primary {
+      background: #3b82f6;
+      border: none;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #2563eb;
+    }
+
+    /* 标签输入框 */
+    .tag-input {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 8px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      min-height: 48px;
+    }
+
+    .tag-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 8px;
+      background: #eff6ff;
+      color: #3b82f6;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+
+    .tag-close {
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .tag-input input {
+      border: none;
+      outline: none;
+      padding: 4px;
+      flex: 1;
+      min-width: 100px;
+      font-size: 14px;
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 1024px) {
+      .main-container {
+        grid-template-columns: 200px 1fr;
+      }
+
+      .right-sidebar {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .main-container {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: relative;
+        top: 0;
+      }
+
+      .create-post-btn {
+        right: 20px;
+        bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- 导航栏 -->
+    <nav class="navbar">
+      <div class="nav-content">
+        <div class="nav-brand" @click="navigateHome">深圳大学竞赛交流论坛</div>
+        <div class="nav-links">
+          <a href="#" class="nav-link active">首页</a>
+          <a href="#" class="nav-link">标签</a>
+          <a href="#" class="nav-link">问答</a>
+          <a href="#" class="nav-link">组队</a>
+          <a href="#" class="nav-link">消息</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <div class="main-container">
+      <!-- 左侧边栏 -->
+      <div class="sidebar">
+        <div class="side-menu">
+          <h3 class="menu-title">社区分类</h3>
+          <div 
+            v-for="(item, index) in menuItems" 
+            :key="index"
+            :class="['menu-item', { active: currentMenu === item.key }]"
+            @click="currentMenu = item.key"
+          >
+            <span class="menu-item-icon">{{ item.icon }}</span>
+            {{ item.label }}
+          </div>
+        </div>
+      </div>
+
+      <!-- 中间帖子列表 -->
+      <div class="post-list">
+        <div class="post-card" v-for="post in filteredPosts" :key="post.id">
+          <div class="post-header">
+            <img :src="post.user.avatar" alt="用户头像" class="user-avatar">
+            <div class="post-meta">
+              <div class="user-name">{{ post.user.name }}</div>
+              <div class="post-time">{{ post.time }}</div>
+            </div>
+          </div>
+          <div class="post-tags">
+            <span v-for="tag in post.tags" :key="tag" class="tag">{{ tag }}</span>
+          </div>
+          <h3 class="post-title">{{ post.title }}</h3>
+          <p class="post-content">{{ post.content }}</p>
+          <div class="post-footer">
+            <div class="post-action" @click="toggleLike(post.id)">
+              <span v-if="post.liked">❤️</span>
+              <span v-else>🤍</span>
+              {{ post.likes }}
+            </div>
+            <div class="post-action" @click="toggleComments(post.id)">
+              💬 {{ post.comments.length }}
+            </div>
+          </div>
+
+          <!-- 评论区 -->
+          <div class="comments-section" v-if="post.showComments">
+            <div class="comment" v-for="comment in post.comments" :key="comment.id">
+              <div class="comment-avatar">
+                <img :src="comment.user.avatar" alt="评论者头像" width="36" height="36" style="border-radius: 50%;">
+              </div>
+              <div class="comment-content">
+                <div class="comment-user">{{ comment.user.name }}</div>
+                <div class="comment-text">{{ comment.text }}</div>
+                <div class="comment-actions">
+                  <span @click="likeComment(post.id, comment.id)">
+                    <span v-if="comment.liked">👍</span>
+                    <span v-else>👍</span> {{ comment.likes }}
+                  </span>
+                  <span @click="replyToComment(post.id, comment.id)">回复</span>
+                </div>
+              </div>
+            </div>
+            <!-- 回复输入框 -->
+            <div class="comment-input">
+              <img src="https://via.placeholder.com/36" alt="当前用户头像">
+              <textarea v-model="newComment[post.id]" placeholder="添加评论..."></textarea>
+              <button @click="addComment(post.id)">发送</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右侧边栏 -->
+      <div class="right-sidebar">
+        <!-- 热门话题 -->
+        <div class="trending-card">
+          <h3 class="card-title">热门话题</h3>
+          <div v-for="(topic, index) in trendingTopics" :key="index" class="trending-item">
+            <div class="trending-number">{{ index }}</div>
+            <div class="trending-content">
+              <h4>{{ topic.title }}</h4>
+              <p>{{ topic.description }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 推荐用户 -->
+        <div class="recommend-card">
+          <h3 class="card-title">推荐用户</h3>
+          <div v-for="(user, index) in recommendedUsers" :key="index" class="recommend-user">
+            <img :src="user.avatar" alt="推荐用户头像" class="recommend-user-avatar">
+            <div class="recommend-user-info">
+              <div class="recommend-user-name">{{ user.name }}</div>
+              <div class="recommend-user-bio">{{ user.bio }}</div>
+            </div>
+            <button 
+              class="follow-btn" 
+              :class="{ following: user.following }"
+              @click="toggleFollow(user.id)"
+            >
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 发帖按钮 -->
+    <button class="create-post-btn" @click="showCreatePostModal = true">+</button>
+
+    <!-- 发帖弹窗 -->
+    <div class="modal" v-if="showCreatePostModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">发帖</h2>
+          <button class="close-btn" @click="showCreatePostModal = false">&times;</button>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="postTitle">标题</label>
+          <input 
+            type="text" 
+            id="postTitle" 
+            v-model="newPost.title" 
+            class="form-input"
+            placeholder="请输入帖子标题"
+          >
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="postContent">内容</label>
+          <textarea 
+            id="postContent" 
+            v-model="newPost.content" 
+            class="form-textarea"
+            placeholder="请输入帖子内容"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">标签</label>
+          <div class="tag-input">
+            <span 
+              v-for="(tag, index) in newPost.tags" 
+              :key="index" 
+              class="tag-item"
+            >
+              {{ tag }}
+              <span class="tag-close" @click="removeTag(index)">&times;</span>
+            </span>
+            <input 
+              type="text" 
+              v-model="tagInput" 
+              @keyup.enter="addTag"
+              placeholder="按回车添加标签"
+            >
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-cancel" @click="showCreatePostModal = false">取消</button>
+          <button class="btn btn-primary" @click="createPost">发布</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        // 导航栏当前选中项
+        currentMenu: 'home',
+
+        // 侧边栏菜单项
+        menuItems: [
+          { key: 'home', label: '首页', icon: '🏠' },
+          { key: 'tags', label: '标签', icon: '🏷️' },
+          { key: 'qa', label: '问答', icon: '❓' },
+          { key: 'team', label: '组队', icon: '🎉' },
+          { key: 'message', label: '消息', icon: '🛒' },
+        ],
+
+        // 帖子数据
+        posts: [
+          {
+            id: 1,
+            user: {
+              name: 'Alice',
+              avatar: 'https://via.placeholder.com/40'
+            },
+            time: '2小时前',
+            tags: ['Vue.js', '前端'],
+            title: '如何优化Vue应用的性能？',
+            content: '在开发大型Vue应用时，性能优化是一个重要的考虑因素。以下是一些常用的优化技巧...',
+            likes: 12,
+            liked: false,
+            comments: [
+              {
+                id: 1,
+                user: {
+                  name: 'Bob',
+                  avatar: 'https://via.placeholder.com/36'
+                },
+                text: '你可以尝试使用Vue的异步组件来减少初始加载时间。',
+                likes: 3,
+                liked: false
+              },
+              {
+                id: 2,
+                user: {
+                  name: 'Charlie',
+                  avatar: 'https://via.placeholder.com/36'
+                },
+                text: '懒加载路由和组件也是不错的选择。',
+                likes: 2,
+                liked: false
+              }
+            ],
+            showComments: false
+          },
+          {
+            id: 2,
+            user: {
+              name: 'David',
+              avatar: 'https://via.placeholder.com/40'
+            },
+            time: '1天前',
+            tags: ['JavaScript', '编程'],
+            title: 'ES6的新特性有哪些？',
+            content: 'ES6引入了许多新特性，使JavaScript更加强大和易用。以下是一些主要的新特性...',
+            likes: 8,
+            liked: false,
+            comments: [
+              {
+                id: 1,
+                user: {
+                  name: 'Eve',
+                  avatar: 'https://via.placeholder.com/36'
+                },
+                text: '箭头函数简化了函数的定义方式。',
+                likes: 1,
+                liked: false
+              }
+            ],
+            showComments: false
+          }
+          // 更多帖子...
+        ],
+
+        // 右侧热门话题
+        trendingTopics: [
+          { title: 'Vue 3 vs React 17', description: '深入比较Vue 3和React 17的性能和生态系统。' },
+          { title: 'CSS Grid布局教程', description: '掌握CSS Grid布局，打造响应式网页设计。' },
+          { title: 'Node.js最佳实践', description: '了解Node.js开发中的最佳实践和常见陷阱。' },
+          { title: '前端安全指南', description: '保护你的前端应用免受常见安全威胁。' },
+          { title: '使用TypeScript提高代码质量', description: '如何在前端项目中引入TypeScript来提升代码质量。' }
+        ],
+
+        // 右侧推荐用户
+        recommendedUsers: [
+          { id: 1, name: 'Frank', bio: '全栈开发者，热衷于开源项目。', avatar: 'https://via.placeholder.com/36', following: false },
+          { id: 2, name: 'Grace', bio: '前端工程师，专注于React和Vue。', avatar: 'https://via.placeholder.com/36', following: false },
+          { id: 3, name: 'Heidi', bio: '移动开发专家，喜欢Flutter。', avatar: 'https://via.placeholder.com/36', following: false },
+          { id: 4, name: 'Ivan', bio: '后端开发者，精通Node.js。', avatar: 'https://via.placeholder.com/36', following: false },
+          { id: 5, name: 'Judy', bio: 'UI/UX设计师，关注用户体验。', avatar: 'https://via.placeholder.com/36', following: false }
+        ],
+
+        // 发帖弹窗控制
+        showCreatePostModal: false,
+
+        // 新帖子数据
+        newPost: {
+          title: '',
+          content: '',
+          tags: []
+        },
+
+        // 标签输入
+        tagInput: '',
+
+        // 新评论输入
+        newComment: {}
+      },
+      computed: {
+        // 根据当前菜单过滤帖子
+        filteredPosts() {
+          // 这里可以根据currentMenu进行筛选，例如按标签、热门等
+          // 目前示例中，默认显示所有帖子
+          return this.posts;
+        }
+      },
+      methods: {
+        // 导航回首页
+        navigateHome() {
+          this.currentMenu = 'home';
+        },
+
+        // 添加标签
+        addTag() {
+          if (this.tagInput.trim() !== '' && !this.newPost.tags.includes(this.tagInput.trim())) {
+            this.newPost.tags.push(this.tagInput.trim());
+          }
+          this.tagInput = '';
+        },
+
+        // 移除标签
+        removeTag(index) {
+          this.newPost.tags.splice(index, 1);
+        },
+
+        // 创建新帖子
+        createPost() {
+          if (this.newPost.title.trim() === '' || this.newPost.content.trim() === '') {
+            alert('标题和内容不能为空');
+            return;
+          }
+
+          const newPost = {
+            id: this.posts.length + 1,
+            user: {
+              name: '当前用户', // 这里可以替换为实际登录用户信息
+              avatar: 'https://via.placeholder.com/40'
+            },
+            time: '刚刚',
+            tags: [...this.newPost.tags],
+            title: this.newPost.title,
+            content: this.newPost.content,
+            likes: 0,
+            liked: false,
+            comments: [],
+            showComments: false
+          };
+
+          this.posts.unshift(newPost);
+          this.newPost = { title: '', content: '', tags: [] };
+          this.showCreatePostModal = false;
+        },
+
+        // 点赞帖子
+        toggleLike(postId) {
+          const post = this.posts.find(p => p.id === postId);
+          if (post) {
+            if (post.liked) {
+              post.likes--;
+            } else {
+              post.likes++;
+            }
+            post.liked = !post.liked;
+          }
+        },
+
+        // 切换评论区显示
+        toggleComments(postId) {
+          const post = this.posts.find(p => p.id === postId);
+          if (post) {
+            post.showComments = !post.showComments;
+          }
+        },
+
+        // 添加评论
+        addComment(postId) {
+          const commentText = this.newComment[postId];
+          if (!commentText || commentText.trim() === '') {
+            alert('评论内容不能为空');
+            return;
+          }
+
+          const post = this.posts.find(p => p.id === postId);
+          if (post) {
+            const newComment = {
+              id: post.comments.length + 1,
+              user: {
+                name: '当前用户', // 这里可以替换为实际登录用户信息
+                avatar: 'https://via.placeholder.com/36'
+              },
+              text: commentText.trim(),
+              likes: 0,
+              liked: false
+            };
+            post.comments.push(newComment);
+            this.$set(this.newComment, postId, '');
+          }
+        },
+
+        // 点赞评论
+        likeComment(postId, commentId) {
+          const post = this.posts.find(p => p.id === postId);
+          if (post) {
+            const comment = post.comments.find(c => c.id === commentId);
+            if (comment) {
+              if (comment.liked) {
+                comment.likes--;
+              } else {
+                comment.likes++;
+              }
+              comment.liked = !comment.liked;
+            }
+          }
+        },
+
+        // 关注/取消关注用户
+        toggleFollow(userId) {
+          const user = this.recommendedUsers.find(u => u.id === userId);
+          if (user) {
+            user.following = !user.following;
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
+
+

@@ -38,7 +38,7 @@ urlpatterns = [
     path('contactus/', include('contactus.urls')),
     path('teacher_information/', include('teacher_information.urls')),
     path('', include('partic.urls')),
-
+    path('cc/', include('cc.urls')), 
     path('', include('partic.urls')),
     path('personal_center/', include('personal_center.urls')),
 ]
