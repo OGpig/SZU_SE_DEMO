@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect, reverse
 from django.core.paginator import Paginator
 from django.http import JsonResponse
+
+import personal_center.models
 from .forms import LoginForm, RegisterForm, AddressForm
 from django.contrib import messages
 
@@ -34,6 +36,9 @@ def register(request):
                     new_cus = Customer.objects.create(customer_name=username, customer_tel=tel,
                                                       customer_password=password1)
                     new_cus.save()
+                    new_cus_id = Customer.objects.get(customer_name=username).customer_id
+                    new_user = personal_center.models.User.objects.create(user_name=username, user_id=new_cus_id)
+                    new_user.save()
                     # 自动跳转到登录页面
                     login_form = LoginForm()
                     message = "注册成功！"
@@ -131,6 +136,7 @@ def information(request):
                 return render(request, 'customer/information.html', locals())
 
     return render(request, 'customer/information.html', locals())
+    # return render(request, 'personal_center/customer_info.html', locals())
 
 
 def show_info(request):
